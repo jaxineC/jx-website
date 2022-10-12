@@ -1,0 +1,28 @@
+.footer {
+	width: 100%;
+	height: 40vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	.footer__text {
+		vertical-align: middle;
+		color: var(--white);
+		margin: auto 0;
+	}
+	.footer__backToTop {
+		position: absolute;
+		bottom: 30px;
+		color: var(--white);
+	}
+	.footer__background {
+		z-index: -1;
+		align-self: center;
+		position: absolute;
+		bottom: 0px;
+		height: 40vh;
+		width: 100vw;
+		background-color: var(--black);
+	}
+}
