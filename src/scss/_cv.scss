@@ -1,0 +1,96 @@
+.cv {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+
+	&__headline {
+		height: 50vh;
+	}
+
+	&__summary {
+		width: 60%;
+		margin-bottom: 150px;
+		&-p {
+			font-size: var(--L);
+			color: red;
+		}
+	}
+	&__skills {
+		margin-bottom: 150px;
+	}
+	&__work {
+		margin-bottom: 150px;
+	}
+	&__education {
+		margin-bottom: 150px;
+	}
+	&__honers {
+		margin-bottom: 150px;
+	}
+}
+.cv__headline {
+	&-title {
+		position: absolute;
+		top: 30vh;
+		left: 0px;
+		font-size: var(--XXL);
+		font-weight: 900;
+		line-height: 6rem;
+		padding-left: 1rem;
+	}
+	&-highlight {
+		width: 55vw;
+		height: 20vh;
+		background-color: var(--theme);
+		position: absolute;
+		transform: translateY(3rem);
+		top: 30vh;
+		left: 0px;
+		z-index: -99;
+	}
+}
+.cv__section {
+	&-title {
+		font-size: var(--XL);
+		line-height: 6rem;
+		margin-bottom: 3rem;
+	}
+	&-highlight {
+		width: 40vw;
+		height: 10vh;
+		background-color: var(--theme);
+		position: absolute;
+		left: 0px;
+		transform: translateY(3rem);
+		z-index: -99;
+	}
+	&-p {
+		font-size: var(--M);
+		margin-bottom: var(--L);
+	}
+	&-list {
+		list-style: outside;
+		list-style-type: none;
+		margin-bottom: 3rem;
+	}
+	&-year {
+		font-size: var(--M);
+	}
+	&-em {
+		font-size: var(--L);
+		margin-bottom: 0.5rem;
+	}
+	&-projects {
+		font-size: vr(--M);
+		li {
+			list-style-type: "- ";
+			transform: translateX(1rem);
+		}
+	}
+
+	span {
+		background-color: var(--offWhite);
+		padding: 0.1rem 0.5rem;
+	}
+}

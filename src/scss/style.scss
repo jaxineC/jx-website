@@ -2,6 +2,8 @@
 @import "header";
 @import "main";
 @import "footer";
+@import "cv";
+@import "contact";
 
 * {
 	box-sizing: border-box;
@@ -17,24 +19,6 @@ body {
 	justify-content: center;
 	align-items: center;
 	margin: 0 auto;
-}
-
-.ft-heavy {
-	font-weight: 900;
-}
-
-.ft-highlight {
-	position: relative;
-}
-
-.ft-highlight::before {
-	content: "";
-	position: absolute;
-	bottom: 0;
-	z-index: -1;
-	height: 100%;
-	width: 100%;
-	background-color: var(--theme);
 }
 
 @media only screen and (max-width: 1200px) {

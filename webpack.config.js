@@ -13,6 +13,14 @@ module.exports = {
 	devtool: "inline-source-map",
 	devServer: {
 		static: "./dist",
+		historyApiFallback: {
+			rewrites: [
+				{ from: /^\/$/, to: "/index.html" },
+				{ from: /^\/home/, to: "/" },
+				{ from: /^\/cv/, to: "/" },
+				{ from: /^\/contact/, to: "/" },
+			],
+		},
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
