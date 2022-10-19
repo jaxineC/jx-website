@@ -1,3 +1,6 @@
+$MqThreadLaptop: 1200px;
+$MqThreadMobile: 600px;
+
 :root {
 	--theme: #e6f252;
 	--white: #fff;
@@ -40,6 +43,7 @@
 	position: absolute;
 	top: 0px;
 }
+
 button {
 	height: 3rem;
 	background-color: var(--white);

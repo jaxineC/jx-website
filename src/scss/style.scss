@@ -1,9 +1,9 @@
-@import "base";
+@import "library";
 @import "header";
-@import "main";
+@import "mainHome";
+@import "mainCV";
+@import "mainContact";
 @import "footer";
-@import "cv";
-@import "contact";
 
 * {
 	box-sizing: border-box;
@@ -21,13 +21,13 @@ body {
 	margin: 0 auto;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: $MqThreadLaptop) {
 	body {
 		width: 100%;
 	}
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: $MqThreadMobile) {
 	body {
 		width: 90%;
 	}

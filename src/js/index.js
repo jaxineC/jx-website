@@ -24,30 +24,60 @@ const markupHeader = `
 			<div><span class="ft-highlight">web developer</span>+ designer</div>
 		</div>
 		<nav class="header__right nav nav__pages">
-			<div class="nav__home nav__page--to" data-page="home">Home</div>
-			<div class="nav__cv nav__page--to"  data-page="cv">CV</div>
-			<div class="nav__contact nav__page--to" data-page="contact">Contact</div>
-			<div class="nav__login">
-				<svg class="nav__login--icon">
-						<use href="${icons}#icon-user" />
-				</svg>
-				<span class="nav__login--status">Log in</span>
+				<div class="nav__home nav__page--to" data-page="home">Home</div>
+				<div class="nav__cv nav__page--to"  data-page="cv">CV</div>
+				<div class="nav__contact nav__page--to" data-page="contact">Contact</div>
+				<div class="nav__login">
+					<svg class="nav__login--icon">
+							<use href="${icons}#icon-user" />
+					</svg>
+					<span class="nav__login--status">Log in</span>
+				</div>
+				<div class="nav__links">
+					<svg class="nav__links--github nav__link" data-url="https://github.com/jaxineC?tab=repositories">
+						<use href="${icons}#icon-github" />
+					</svg>
+					<svg class="nav__links--fb nav__link" data-url="https://www.facebook.com/chiahsing.chang.50">
+						<use href="${icons}#icon-fb" />
+					</svg>
+					<svg class="nav__links--linkedIn nav__link"  data-url="https://www.linkedin.com/in/chia-hsing-chang-a41590136/">
+						<use href="${icons}#icon-linkedIn" />
+					</svg>
+					<svg class="nav__links--email nav__link" data-url="mailto:jaxine.c@gmail.com">
+						<use href="${icons}#icon-email"/>
+					</svg>
+				</div>
+		</nav>
+		<nav class="header__right-menu nav nav__pages">
+			<svg class="header__right-menuIcon">
+				<use href="${icons}#icon-menu" />
+			</svg>
+			<div class="header__menu-unfold hide">
+				<div class="nav__home nav__page--to" data-page="home">Home</div>
+				<div class="nav__cv nav__page--to"  data-page="cv">CV</div>
+				<div class="nav__contact nav__page--to" data-page="contact">Contact</div>
+				<div class="nav__login">
+					<svg class="nav__login--icon">
+							<use href="${icons}#icon-user" />
+					</svg>
+					<span class="nav__login--status">Log in</span>
+				</div>
+				<div class="nav__links">
+					<svg class="nav__links--github nav__link" data-url="https://github.com/jaxineC?tab=repositories">
+						<use href="${icons}#icon-github" />
+					</svg>
+					<svg class="nav__links--fb nav__link" data-url="https://www.facebook.com/chiahsing.chang.50">
+						<use href="${icons}#icon-fb" />
+					</svg>
+					<svg class="nav__links--linkedIn nav__link"  data-url="https://www.linkedin.com/in/chia-hsing-chang-a41590136/">
+						<use href="${icons}#icon-linkedIn" />
+					</svg>
+					<svg class="nav__links--email nav__link" data-url="mailto:jaxine.c@gmail.com">
+						<use href="${icons}#icon-email"/>
+					</svg>
+				</div>
 			</div>
-			<div class="nav__links">
-				<svg class="nav__links--github nav__link" data-url="https://github.com/jaxineC?tab=repositories">
-					<use href="${icons}#icon-github" />
-				</svg>
-				<svg class="nav__links--fb nav__link" data-url="https://www.facebook.com/chiahsing.chang.50">
-					<use href="${icons}#icon-fb" />
-				</svg>
-				<svg class="nav__links--linkedIn nav__link"  data-url="https://www.linkedin.com/in/chia-hsing-chang-a41590136/">
-					<use href="${icons}#icon-linkedIn" />
-				</svg>
-				<svg class="nav__links--email nav__link" data-url="mailto:jaxine.c@gmail.com">
-					<use href="${icons}#icon-email"/>
-				</svg>
-				
-			</div>
+
 		</nav>
 		<div class="header__background"></div>
 		<div class="header__line"></div>
@@ -276,148 +306,150 @@ const generateMarkupMain = function () {
 			break;
 		default:
 			markupMain = `
-			<section class="sections__summary">
-				<div class="sections__summary-text">
-					Ready to take on challenges on
-					<span class="ft-highlight"
-						><span class="ft-heavy ft-highlight">FRONT-END</span>
-						development</span
-					>, and 
-					<span class="ft-heavy">explore the world of code</span>.
-				</div>
-				<div class="sections__summary-image">placeholder for picture</div>
-				<div class="sections__summary-highlight"></div>
-				<div class="sections__summary-background"></div>
-			</section>
-			<section class="sections__skills">
-				<div class="sections__skills-highlight"></div>
-				<div class="sections__skills-title">
-					Me & <span class="ft-heavy">Skills</span>
-				</div>
-				<div class="sections__skills-text">
-					<div>
-						I am an inquisitive person, and I am ready to take on challenges in
-						front-end development, find and solve problems. My passion is for
-						exploring the world, and I am dedicated to learning more every day
-						through life and work.
+			<div class="home">
+				<section class="sections__summary">
+					<div class="sections__summary-text">
+						Ready to take on challenges on
+						<span class="ft-highlight"
+							><span class="ft-heavy ft-highlight">FRONT-END</span>
+							development</span
+						>, and 
+						<span class="ft-heavy">explore the world of code</span>.
 					</div>
-					<span>HTML</span>
-					<span>CSS</span>
-					<span class="ft-heavy black">JavaScript</span>
-					<span>npm</span>
-					<span class="lightGrey">webpack</span>
-					<span>babel</span>
-					<span class="ft-heavy black">React</span>
-					<span class="lightGrey">styled-components</span>
-					<span>sass</span>
-					<span class="lightGrey">AWS EC2</span>
-					<span class="ft-heavy black">Firebase</span>
-					<span>Python flask</span>
-					<span class="lightGrey">MySQL</span>
-					<span>Git</span>
-					<span>Prettier</span>
-					<span>Adobe CC Illustrator</span>
-					<div><button class="sections__skills-download">Download full resume</button></div>
-				</div>
-			</section>
-			<section class="sections__portfolio">
-				<div class="sections__portfolio-text">
-					<div class="sections__portfolio-highlight">portfolio</div>
-					<div class="sections__portfolio-text-1">
-						<div class="title">
-							<span class="ft-heavy">balancePro</span> online Gantt chart tool
+					<div class="sections__summary-image">placeholder for picture</div>
+					<div class="sections__summary-highlight"></div>
+					<div class="sections__summary-background"></div>
+				</section>
+				<section class="sections__skills">
+					<div class="sections__skills-highlight"></div>
+					<div class="sections__skills-title">
+						Me & <span class="ft-heavy">Skills</span>
+					</div>
+					<div class="sections__skills-text">
+						<div>
+							I am an inquisitive person, and I am ready to take on challenges in
+							front-end development, find and solve problems. My passion is for
+							exploring the world, and I am dedicated to learning more every day
+							through life and work.
 						</div>
-						<div class="sub">
-							balancePro is a front-end-oriented project. Focused on
-							visualization of user actions with mouse events and
-							timestamp-related methods in JavaScript.
+						<span>HTML</span>
+						<span>CSS</span>
+						<span class="ft-heavy black">JavaScript</span>
+						<span>npm</span>
+						<span class="lightGrey">webpack</span>
+						<span>babel</span>
+						<span class="ft-heavy black">React</span>
+						<span class="lightGrey">styled-components</span>
+						<span>sass</span>
+						<span class="lightGrey">AWS EC2</span>
+						<span class="ft-heavy black">Firebase</span>
+						<span>Python flask</span>
+						<span class="lightGrey">MySQL</span>
+						<span>Git</span>
+						<span>Prettier</span>
+						<span>Adobe CC Illustrator</span>
+						<div><button class="sections__skills-download">Download full resume</button></div>
+					</div>
+				</section>
+				<section class="sections__portfolio">
+					<div class="sections__portfolio-text">
+						<div class="sections__portfolio-highlight">portfolio</div>
+						<div class="sections__portfolio-text-1">
+							<div class="title">
+								<span class="ft-heavy">balancePro</span> online Gantt chart tool
+							</div>
+							<div class="sub">
+								balancePro is a front-end-oriented project. Focused on
+								visualization of user actions with mouse events and
+								timestamp-related methods in JavaScript.
+							</div>
+							<ul>
+								<li>
+									Used epoch timestamp as the original point and translated time
+									units to pixels with the help of JavaScript math methods.
+								</li>
+								<li>Modularized with React hook and functional components.</li>
+								<li>
+									Utilized Firebase back-end services for hosting, database, and
+									user authentication.
+								</li>
+								<li>Implemented styled-components for CSS in JS</li>
+								<li>Executed version control with Git branches.</li>
+							</ul>
 						</div>
+						<div class="sections__portfolio-text-2">
+							<div class="title">
+								<span class="ft-heavy">Taipei Day Trip</span> e-commerce website
+							</div>
+							<div class="sub">
+								Taipei Day Trip website is a learning-from-doing full-stack
+								development Built with Python and deployed on AWS EC2 with
+								Ubuntu.
+							</div>
+							<ul>
+								<li>
+								RWD UI followed the design from Figma, involving infinite scroll and image slider.
+								</li>
+								<li>
+									Client-side form validation with the pattern using regular
+									expressions.
+								</li>
+								<li>Followed RESTful API regulation from Swagger.</li>
+								<li>Used JWT for member system.</li>
+								<li>Used a third-party API for online payment. (TapPay)</li>
+								<li>
+									CRUD in the database with MySQL, including initial multiple data
+									handling from a given JSON file.
+								</li>
+							</ul>
+						</div>
+					</div>
+			
+					<div class="sections__portfolio-images">
+						<img class="sections__portfolio-image sections__portfolio-image-bp hide" src="${demoBalancePro}" alt="bp" />
+						<img class="sections__portfolio-image sections__portfolio-image-tpe hide" src="${demoTpe}" alt="tpe" />
+					</div>
+					<div class="sections__portfolio-background"></div>
+				</section>
+				<div class="section__training-title">My Learning Tools</div>
+				<section class="sections__training">
+					<div class="sections__training-course">
+						<div class="svg-text">
+							<svg>
+								<use href="${icons}#icon-wehelp" />
+							</svg>
+							<span>WeHelp</span>
+						</div>
+			
+						<div class="title">6 mo. bootcamp + Ongoing community</div>
 						<ul>
+							<li>Real-World project development process.</li>
+							<li>Little guidance and no ready-to-follow solutions were provided.</li>
+							<li>Common web development tools include Git, Figma, and Swagger.</li>
 							<li>
-								Used epoch timestamp as the original point and translated time
-								units to pixels with the help of JavaScript math methods.
+								Ability to understand business requirements and translate them into
+								features.
 							</li>
-							<li>Modularized with React hook and functional components.</li>
-							<li>
-								Utilized Firebase back-end services for hosting, database, and
-								user authentication.
-							</li>
-							<li>Implemented styled-components for CSS in JS</li>
-							<li>Executed version control with Git branches.</li>
+							<li>Knowledge to web security and performance.</li>
 						</ul>
 					</div>
-					<div class="sections__portfolio-text-2">
-						<div class="title">
-							<span class="ft-heavy">Taipei Day Trip</span> e-commerce website
-						</div>
-						<div class="sub">
-							Taipei Day Trip website is a learning-from-doing full-stack
-							development Built with Python and deployed on AWS EC2 with
-							Ubuntu.
-						</div>
-						<ul>
-							<li>
-							RWD UI followed the design from Figma, involving infinite scroll and image slider.
-							</li>
-							<li>
-								Client-side form validation with the pattern using regular
-								expressions.
-							</li>
-							<li>Followed RESTful API regulation from Swagger.</li>
-							<li>Used JWT for member system.</li>
-							<li>Used a third-party API for online payment. (TapPay)</li>
-							<li>
-								CRUD in the database with MySQL, including initial multiple data
-								handling from a given JSON file.
-							</li>
-						</ul>
-					</div>
-				</div>
-		
-				<div class="sections__portfolio-images">
-					<img class="sections__portfolio-image sections__portfolio-image-bp hide" src="${demoBalancePro}" alt="bp" />
-					<img class="sections__portfolio-image sections__portfolio-image-tpe hide" src="${demoTpe}" alt="tpe" />
-				</div>
-				<div class="sections__portfolio-background"></div>
-			</section>
-			<div class="section__training-title">My Learning Tools</div>
-			<section class="sections__training">
-				<div class="sections__training-course">
-					<div class="svg-text">
+					<div class="sections__training-course">
 						<svg>
-							<use href="${icons}#icon-wehelp" />
+							<use href="${icons}#icon-udemy" />
 						</svg>
-						<span>WeHelp</span>
+						<div class="title">online course resources</div>
+						<ul>
+							<li>Complete JavaScript taught by Jonas Schmedtmann - 69 hours</li>
+							<li>
+								Real-World Websites with HTML and CSS taught by Jonas Schmedtmann-
+								37.5 hours
+							</li>
+							<li>Complete Python Developer by Andrei Neagoie- 30.5 hours</li>
+							<li>JavaScript、React、Flask taught by彭兆蔚 - 24.5 hours</li>
+						</ul>
 					</div>
-		
-					<div class="title">6 mo. bootcamp + Ongoing community</div>
-					<ul>
-						<li>Real-World project development process.</li>
-						<li>Little guidance and no ready-to-follow solutions were provided.</li>
-						<li>Common web development tools include Git, Figma, and Swagger.</li>
-						<li>
-							Ability to understand business requirements and translate them into
-							features.
-						</li>
-						<li>Knowledge to web security and performance.</li>
-					</ul>
-				</div>
-				<div class="sections__training-course">
-					<svg>
-						<use href="${icons}#icon-udemy" />
-					</svg>
-					<div class="title">online course resources</div>
-					<ul>
-						<li>Complete JavaScript taught by Jonas Schmedtmann - 69 hours</li>
-						<li>
-							Real-World Websites with HTML and CSS taught by Jonas Schmedtmann-
-							37.5 hours
-						</li>
-						<li>Complete Python Developer by Andrei Neagoie- 30.5 hours</li>
-						<li>JavaScript、React、Flask taught by彭兆蔚 - 24.5 hours</li>
-					</ul>
-				</div>
-			</section>
+				</section>
+			</div>
 		`;
 	}
 };
@@ -511,6 +543,17 @@ const navPageTo = function (e) {
 };
 const downloadPDF = () => console.log("downloadPDF");
 
+const addHendlerToggleMenu = function () {
+	const menuIcon = document.querySelector(".header__right-menuIcon");
+	menuIcon.addEventListener("click", function () {
+		const menu = document.querySelector(".header__menu-unfold");
+		console.log(menu.classList.value.includes("hide"));
+		menu.classList.value.includes("hide")
+			? menu.classList.remove("hide")
+			: menu.classList.add("hide");
+	});
+};
+
 const init = function () {
 	generateMarkupMain();
 	renderTemplate("header", markupHeader);
@@ -518,6 +561,7 @@ const init = function () {
 	renderTemplate("footer", markupFooter);
 	addHandlerExternalLinks(openExternalLink);
 	addHandlerNavPageTo(navPageTo);
+	addHendlerToggleMenu();
 	document
 		.querySelector(".header__left")
 		.addEventListener("click", () => (window.location = "./"));
