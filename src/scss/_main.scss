@@ -117,12 +117,23 @@
 			margin-bottom: 4rem;
 		}
 	}
-	&-image {
-		position: relative;
-		top: -10rem;
+	&-images {
+		position: absolute;
+		top: calc(200vh + 250px);
+		right: 0px;
 		width: 30vw;
 		height: 30vw;
 		border: 1px dotted black;
+		z-index: -99;
+	}
+	&-image {
+		object-fit: cover;
+		&-bp {
+			width: 100%;
+		}
+		&-tpe {
+			width: 50%;
+		}
 	}
 	&-highlight {
 		font-size: var(--XL);

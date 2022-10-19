@@ -12,12 +12,6 @@ const stateObj = {
 	page: "", //'home', 'cv', 'blog', 'contact'
 };
 
-const renderComponent = function (markup, className) {
-	const element = document.createElement("div");
-	element.classList.add(className);
-	element.insertAdjacentHTML("afterbegin", markup);
-	return element;
-};
 const renderTemplate = function (parentClass, markup) {
 	const parentElement = document.querySelector(`.${parentClass}`);
 	// parentElement.insertAdjacentHTML("beforeend", markup);
@@ -62,7 +56,7 @@ let markupMain;
 
 const markupFooter = `
 		<div class="footer__text">
-			UI/ UX are inspired by Wix.com templates + Udemy JavaScript online
+			UI/ UX is inspired by Wix.com templates + Udemy JavaScript online
 			courses by Jonas Schmedtmann.
 		</div>
 		<div class="footer__backToTop">Back To Top</div>
@@ -82,10 +76,13 @@ const generateMarkupMain = function () {
 					<section class="cv__section cv__summary">
 						<h2 class="cv__section-title">Professional Summary</h2>
 						<p  class="cv__summary-p">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora nam rem
-							dolorem sint, deserunt dolorum fugit quidem nihil id quibusdam voluptate
-							quasi, natus cupiditate sequi, quos itaque perferendis harum
-							voluptatibus!
+							I am a front-end developer who majored in architecture and had worked as an architectural designer for years. 
+						</p>
+						<p  class="cv__summary-p">
+							It's lucky to learn in architecture that I learned to find problems and solve them, yet at the same time,  I was able to stay curious and open to possibilities.
+						</p>
+						<p  class="cv__summary-p">
+							After self-learning to code for almost a year, I am ready to start a new career as a front-end developer.
 						</p>
 						<button  class="cv__summary-download">Download full cv</button>
 					</section>
@@ -135,7 +132,7 @@ const generateMarkupMain = function () {
 									</ul>
 									<p class="cv__section-p">
 										Built a website - Taipei Day Trip with limited instruction, using back-end techniques
-										including Python with Flask, MySQL, AWS EC2.
+										including Python with Flask, MySQL, and AWS EC2.
 										Cooperated with partners to build a weather app utilizing Git for version control.
 										Developed a web application- balancePro with no guides.
 										Implement techniques including infinite scroll, JWT, member system, etc.
@@ -150,7 +147,7 @@ const generateMarkupMain = function () {
 										<li>Tainan Long-term Nursing Home, Tainan, Taiwan</li>
 									</ul>
 									<p class="cv__section-p">
-										Lead project designer, helped guide junior designers on tasks, communicated with
+										Lead project designer, helped guide junior designers on tasks, and communicated with
 										clients, consultants, and official supervision departments.
 									</p>
 								</li>
@@ -187,7 +184,7 @@ const generateMarkupMain = function () {
 										<li>High-Speed Rail Yunlin Station, Taiwan</li>
 									</ul>
 									<p class="cv__section-p">
-										Design/ executed a 2-billion-twd project with heavy team communication.
+										Designed/ executed a 2-billion-twd project with heavy team communication.
 									</p>
 								</li>
 								<li class="cv__section-list">
@@ -198,7 +195,7 @@ const generateMarkupMain = function () {
 										<li>Ground Source Master Planning, Vietnam</li>
 									</ul>
 									<p class="cv__section-p">
-										Assisted in executing multiple projects under supervision..
+										Assisted in executing multiple projects under supervision.
 									</p>
 								</li>
 							</ul>
@@ -264,7 +261,7 @@ const generateMarkupMain = function () {
 						<div> email: jaxine.c@gmail.com</div>
 						<div> mobile: 0922 392 203</div>
 					</p>
-					<p class="contact__section-p">Contact me with email, or leave me message here.
+					<p class="contact__section-p">Contact me with the contact info above, </br> or leave me message here.
 						<form class="contact__form">
 							<input type="hidden" name="contact_number">
 							<input class="contact__section-input contact__form-name input" type="text" name="user_name" placeholder="Name"/>
@@ -286,7 +283,7 @@ const generateMarkupMain = function () {
 						><span class="ft-heavy ft-highlight">FRONT-END</span>
 						development</span
 					>, and 
-					<span class="ft-heavy">exploring the world of code</span>.
+					<span class="ft-heavy">explore the world of code</span>.
 				</div>
 				<div class="sections__summary-image">placeholder for picture</div>
 				<div class="sections__summary-highlight"></div>
@@ -297,10 +294,9 @@ const generateMarkupMain = function () {
 				<div class="sections__skills-title">
 					Me & <span class="ft-heavy">Skills</span>
 				</div>
-		
 				<div class="sections__skills-text">
 					<div>
-						I am an inquisitive person, and I am ready to take on challenges on
+						I am an inquisitive person, and I am ready to take on challenges in
 						front-end development, find and solve problems. My passion is for
 						exploring the world, and I am dedicated to learning more every day
 						through life and work.
@@ -332,7 +328,7 @@ const generateMarkupMain = function () {
 							<span class="ft-heavy">balancePro</span> online Gantt chart tool
 						</div>
 						<div class="sub">
-							balancePro is a front-end oriented project. Focused on
+							balancePro is a front-end-oriented project. Focused on
 							visualization of user actions with mouse events and
 							timestamp-related methods in JavaScript.
 						</div>
@@ -356,13 +352,12 @@ const generateMarkupMain = function () {
 						</div>
 						<div class="sub">
 							Taipei Day Trip website is a learning-from-doing full-stack
-							development Built with Python, and deployed on AWS EC2 with
+							development Built with Python and deployed on AWS EC2 with
 							Ubuntu.
 						</div>
 						<ul>
 							<li>
-								Used epoch timestamp as the original point and translated time
-								units to pixels with the help of JavaScript math methods.
+							RWD UI followed the design from Figma, involving infinite scroll and image slider.
 							</li>
 							<li>
 								Client-side form validation with the pattern using regular
@@ -373,15 +368,15 @@ const generateMarkupMain = function () {
 							<li>Used a third-party API for online payment. (TapPay)</li>
 							<li>
 								CRUD in the database with MySQL, including initial multiple data
-								handling from given json file.
+								handling from a given JSON file.
 							</li>
 						</ul>
 					</div>
 				</div>
 		
-				<div class="sections__portfolio-image">
-					<img class="sections__portfolio-image-bp" src="${demoBalancePro}" alt="bp" />
-					<img class="sections__portfolio-image-tpe" src="${demoTpe}" alt="tpe" />
+				<div class="sections__portfolio-images">
+					<img class="sections__portfolio-image sections__portfolio-image-bp hide" src="${demoBalancePro}" alt="bp" />
+					<img class="sections__portfolio-image sections__portfolio-image-tpe hide" src="${demoTpe}" alt="tpe" />
 				</div>
 				<div class="sections__portfolio-background"></div>
 			</section>
@@ -398,10 +393,10 @@ const generateMarkupMain = function () {
 					<div class="title">6 mo. bootcamp + Ongoing community</div>
 					<ul>
 						<li>Real-World project development process.</li>
-						<li>Little guidence and no ready-to-follow solutions provided.</li>
-						<li>Common web development tools including Git, Figma, Swagger.</li>
+						<li>Little guidance and no ready-to-follow solutions were provided.</li>
+						<li>Common web development tools include Git, Figma, and Swagger.</li>
 						<li>
-							Ability to understand business requirements and translate them to
+							Ability to understand business requirements and translate them into
 							features.
 						</li>
 						<li>Knowledge to web security and performance.</li>
