@@ -42,7 +42,7 @@
 
 .sections__summary {
 	&-text {
-		font-size: var(--XL);
+		font-size: var(--XXL);
 		height: 100%;
 		vertical-align: middle;
 		padding-top: 40vh;
@@ -125,12 +125,12 @@
 		font-size: var(--XL);
 		z-index: 99;
 		position: absolute;
-		left: calc((100vw - $MqThreadLaptop) / 2 + var(--XXL) * 2 + 55vw);
-		width: 10%;
+		left: calc((100vw - $MqThreadLaptop) / 2 + var(--XXL) * 2 + 50vw);
+		width: 8vw;
 		height: 120vh;
 		background-color: var(--theme);
 		@media only screen and (max-width: $MqThreadLaptop) {
-			left: calc(var(--XXL) * 2 + 55vw);
+			left: calc(var(--XXL) * 2 + 50vw);
 		}
 		@media only screen and (max-width: $MqThreadMobile) {
 			z-index: -99;
@@ -146,7 +146,7 @@
 	&-project {
 		padding: 4rem;
 		background-color: var(--offWhite);
-		width: 55vw;
+		width: 50vw;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -190,13 +190,13 @@
 		}
 		&-image-tpe {
 			width: 25vw;
+			max-height: 120vh;
+			object-position: top;
 			object-fit: cover;
 			position: absolute;
-			right: 0px;
-			transform: translateY(200px);
-			align-self: flex-end;
+			left: calc(var(--XXL) * 2 + 58vw);
+			align-self: center;
 			@media only screen and (max-width: $MqThreadLaptop) {
-				left: calc(var(--XXL) * 2 + 55vw);
 			}
 			@media screen and (max-width: $MqThreadMobile) {
 				width: 100%;

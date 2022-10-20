@@ -34,7 +34,7 @@ const markupHeader = `
 					<span class="nav__login--status">Log in</span>
 				</div>
 				<div class="nav__links">
-					<svg class="nav__links--github nav__link" data-url="https://github.com/jaxineC?tab=repositories">
+					<svg class="nav__links--github nav__link" data-url="https://github.com/jaxineC">
 						<use href="${icons}#icon-github" />
 					</svg>
 					<svg class="nav__links--fb nav__link" data-url="https://www.facebook.com/chiahsing.chang.50">
@@ -321,7 +321,7 @@ const generateMarkupMain = function () {
 							development, and 
 						<span class="ft-heavy">explore the world of code</span>.
 					</div>
-					<div class="sections__summary-image">placeholder for picture</div>
+					<div class="sections__summary-image"></div>
 					<div class="sections__summary-highlight"></div>
 					<div class="sections__summary-background"></div>
 				</section>

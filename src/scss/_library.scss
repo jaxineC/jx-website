@@ -25,18 +25,19 @@ $MqThreadMobile: 600px;
 
 .ft-highlight {
 	position: relative;
-}
-
-.ft-highlight::after {
-	content: "";
-	position: absolute;
-	bottom: 1px;
-	transform: translateX(-100%);
-	z-index: -1;
-	height: 100%;
-	width: 100%;
 	background-color: var(--theme);
 }
+
+// .ft-highlight::after {
+// 	content: "";
+// 	position: absolute;
+// 	bottom: 1px;
+// 	transform: translateX(-100%);
+// 	z-index: -1;
+// 	height: 100%;
+// 	width: 100%;
+// 	background-color: var(--theme);
+// }
 
 .hide {
 	display: none;
