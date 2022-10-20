@@ -85,13 +85,20 @@ const markupHeader = `
 let markupMain;
 
 const markupFooter = `
-		<div class="footer__text">
-			UI/ UX is inspired by Wix.com templates + Udemy JavaScript online
-			courses by Jonas Schmedtmann.
-		</div>
-		<div class="footer__backToTop">Back To Top</div>
-		<div class="footer__background"></div>
+	<div class="footer__text">
+		UI/ UX is inspired by Wix.com templates + Udemy JavaScript online
+		courses by Jonas Schmedtmann.
+	</div>
+	<div class="footer__backToTop">Back To Top</div>
+	<div class="footer__background"></div>
 `;
+
+const addHandlerBackToTop = function () {
+	const btn = document.querySelector(".footer__backToTop");
+	btn.addEventListener("click", function () {
+		window.scroll(0, 0);
+	});
+};
 
 const generateMarkupMain = function () {
 	const target = window.location.href.split("/").at(-1);
@@ -310,10 +317,8 @@ const generateMarkupMain = function () {
 				<section class="sections__summary">
 					<div class="sections__summary-text">
 						Ready to take on challenges on
-						<span class="ft-highlight"
-							><span class="ft-heavy ft-highlight">FRONT-END</span>
-							development</span
-						>, and 
+						<span class="ft-heavy ft-highlight">FRONT-END</span>
+							development, and 
 						<span class="ft-heavy">explore the world of code</span>.
 					</div>
 					<div class="sections__summary-image">placeholder for picture</div>
@@ -352,9 +357,9 @@ const generateMarkupMain = function () {
 					</div>
 				</section>
 				<section class="sections__portfolio">
-					<div class="sections__portfolio-text">
-						<div class="sections__portfolio-highlight">portfolio</div>
-						<div class="sections__portfolio-text-1">
+					<div class="sections__portfolio-highlight">portfolio</div>
+					<div class="sections__portfolio-project">
+						<div class="sections__portfolio-project-text">
 							<div class="title">
 								<span class="ft-heavy">balancePro</span> online Gantt chart tool
 							</div>
@@ -377,7 +382,10 @@ const generateMarkupMain = function () {
 								<li>Executed version control with Git branches.</li>
 							</ul>
 						</div>
-						<div class="sections__portfolio-text-2">
+						<img class="sections__portfolio-project-image sections__portfolio-project-image-bp" src="${demoBalancePro}" alt="bp" />
+					</div>
+					<div class="sections__portfolio-project">
+						<div class="sections__portfolio-project-text">
 							<div class="title">
 								<span class="ft-heavy">Taipei Day Trip</span> e-commerce website
 							</div>
@@ -403,15 +411,10 @@ const generateMarkupMain = function () {
 								</li>
 							</ul>
 						</div>
+						<img class="sections__portfolio-project-image sections__portfolio-project-image-tpe" src="${demoTpe}" alt="tpe" />
 					</div>
-			
-					<div class="sections__portfolio-images">
-						<img class="sections__portfolio-image sections__portfolio-image-bp hide" src="${demoBalancePro}" alt="bp" />
-						<img class="sections__portfolio-image sections__portfolio-image-tpe hide" src="${demoTpe}" alt="tpe" />
-					</div>
-					<div class="sections__portfolio-background"></div>
 				</section>
-				<div class="section__training-title">My Learning Tools</div>
+				<div class="sections__training-title">My Learning Tools</div>
 				<section class="sections__training">
 					<div class="sections__training-course">
 						<div class="svg-text">
@@ -562,6 +565,7 @@ const init = function () {
 	addHandlerExternalLinks(openExternalLink);
 	addHandlerNavPageTo(navPageTo);
 	addHendlerToggleMenu();
+	addHandlerBackToTop();
 	document
 		.querySelector(".header__left")
 		.addEventListener("click", () => (window.location = "./"));

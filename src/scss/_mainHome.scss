@@ -1,30 +1,52 @@
 .home,
 .sections {
-	width: 80%;
+	margin: 0 var(--XXL);
+	@media screen and (max-width: $MqThreadMobile) {
+		margin: 0 var(--L);
+	}
 	&__summary {
 		height: 100vh;
-		margin-bottom: 150px;
+		margin-bottom: 25vh;
+		max-width: 40vw;
+		display: flex;
+		flex-wrap: wrap;
+		@media only screen and (max-width: $MqThreadMobile) {
+			max-width: 100%;
+		}
 	}
 	&__skills {
 		height: 100vh;
-		margin-bottom: 100px;
+		margin-bottom: 25vh;
 	}
 	&__portfolio {
-		margin-bottom: 100px;
+		margin-bottom: 25vh;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		@media only screen and (max-width: $MqThreadMobile) {
+		}
+	}
+	&__training-title {
+		font-size: var(--XL);
+		text-align: center;
 	}
 	&__training {
+		display: flex;
+		justify-content: space-between;
+		color: var(--white);
+		background-color: var(--black);
+		padding: 2rem;
+		margin-bottom: 5rem;
 	}
 }
 
 .sections__summary {
-	display: flex;
-	flex-wrap: wrap;
 	&-text {
 		font-size: var(--XL);
-		max-width: 40vw;
 		height: 100%;
 		vertical-align: middle;
 		padding-top: 40vh;
+		z-index: 999;
 	}
 	&-image {
 		width: 30vw;
@@ -65,6 +87,10 @@
 		font-size: var(--L);
 		max-width: 40vw;
 		height: 100%;
+		z-index: 999;
+		@media only screen and (max-width: $MqThreadMobile) {
+			max-width: 100%;
+		}
 		div {
 			margin: 30px 0px;
 		}
@@ -95,76 +121,128 @@
 	}
 }
 .sections__portfolio {
-	display: flex;
-	flex-direction: row;
-	&-text {
-		font-size: var(--M);
-		max-width: 50vw;
-		padding: 4rem;
-		background-color: var(--offWhite);
-		.title {
-			font-size: var(--L);
-			border-left: 2px solid var(--black);
-			padding-left: 0.5rem;
-			line-height: 1.5rem;
-			margin-bottom: 1rem;
-		}
-		.sub {
-			font-size: var(--L);
-			margin-bottom: 1rem;
-		}
-		ul {
-			margin-bottom: 4rem;
-		}
-	}
-	&-images {
-		position: absolute;
-		top: calc(200vh + 250px);
-		right: 0px;
-		width: 30vw;
-		height: 30vw;
-		border: 1px dotted black;
-		z-index: -99;
-	}
-	&-image {
-		object-fit: cover;
-		&-bp {
-			width: 100%;
-		}
-		&-tpe {
-			width: 50%;
-		}
-	}
 	&-highlight {
 		font-size: var(--XL);
 		z-index: 99;
 		position: absolute;
-		left: 60vw;
-		width: 5vw;
+		left: calc((100vw - $MqThreadLaptop) / 2 + var(--XXL) * 2 + 55vw);
+		width: 10%;
 		height: 120vh;
 		background-color: var(--theme);
+		@media only screen and (max-width: $MqThreadLaptop) {
+			left: calc(var(--XXL) * 2 + 55vw);
+		}
+		@media only screen and (max-width: $MqThreadMobile) {
+			z-index: -99;
+			position: absolute;
+			top: calc(200vh + 200px);
+			padding-left: var(--XL);
+			left: 0px;
+			width: 30vw;
+			height: 10vh;
+			background-color: var(--theme);
+		}
 	}
-	&-background {
+	&-project {
+		padding: 4rem;
+		background-color: var(--offWhite);
+		width: 55vw;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		@media only screen and (max-width: $MqThreadMobile) {
+			width: 100%;
+		}
+		&-text {
+			font-size: var(--M);
+
+			.title {
+				font-size: var(--L);
+				border-left: 2px solid var(--black);
+				padding-left: 0.5rem;
+				line-height: 1.5rem;
+				margin-bottom: 1rem;
+			}
+			.sub {
+				font-size: var(--L);
+				margin-bottom: 1rem;
+			}
+			ul {
+				margin-bottom: 4rem;
+			}
+		}
+		&-image-bp {
+			width: 45vw;
+			object-fit: cover;
+			position: absolute;
+			right: 0px;
+			transform: translateY(-16vw);
+			z-index: -99;
+			@media only screen and (max-width: $MqThreadLaptop) {
+				left: calc(var(--XXL) * 1 + 55vw);
+			}
+			@media screen and (max-width: $MqThreadMobile) {
+				width: 100%;
+				position: static;
+				transform: translateY(0px);
+				z-index: inherit;
+			}
+		}
+		&-image-tpe {
+			width: 25vw;
+			object-fit: cover;
+			position: absolute;
+			right: 0px;
+			transform: translateY(200px);
+			align-self: flex-end;
+			@media only screen and (max-width: $MqThreadLaptop) {
+				left: calc(var(--XXL) * 2 + 55vw);
+			}
+			@media screen and (max-width: $MqThreadMobile) {
+				width: 100%;
+				height: 30vh;
+				position: static;
+				object-fit: cover;
+				overflow: scroll;
+				object-position: top;
+			}
+		}
 	}
 }
 
-.section__training-title {
-	font-size: var(--XL);
-	text-align: center;
-}
 .sections__training {
-	display: flex;
-	justify-content: space-between;
-	color: var(--white);
-	background-color: var(--black);
-	padding: 2rem;
-	margin-bottom: 5rem;
+	justify-content: space-around;
+	flex-wrap: wrap;
 	.title {
 		width: 100%;
 		text-align: center;
 	}
-
 	&-course {
-		width: 30%;
+		width: 40%;
+		margin-bottom: var(--XL);
+		@media only screen and (max-width: $MqThreadMobile) {
+			width: 80%;
+			margin-bottom: var(--XL);
+		}
+		.svg-text {
+			text-align: center;
+			font: var(--XXL) Arial, serif;
+			font-weight: 900;
+			color: rgb(34, 51, 68);
+			svg {
+				width: 80px;
+				padding: 0px;
+				vertical-align: middle;
+			}
+		}
+		svg {
+			height: 80px;
+			width: 100%;
+			padding: 10px 0;
+		}
 	}
+}
+li {
+	list-style-type: "-  ";
+	transform: translateX(1.5rem);
 }

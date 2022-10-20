@@ -11,6 +11,9 @@
 	&__summary {
 		width: 60%;
 		margin-bottom: 150px;
+		@media only screen and (max-width: $MqThreadMobile) {
+			width: 100%;
+		}
 		&-p {
 			font-size: var(--L);
 			margin-bottom: 1rem;
