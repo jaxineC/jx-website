@@ -31,8 +31,17 @@ const markupHeader = `
 					<svg class="nav__login--icon">
 							<use href="${icons}#icon-user" />
 					</svg>
-					<span class="nav__login--status">Log in</span>
+					<span class="nav__login--status">${
+						stateObj.user == true ? "log out" : "Log in"
+					}</span>
 				</div>
+				<form class="nav__login-inputs hide">
+					<input name="email" placeholder="Email" />
+					<input name="password" placeholder="Password" />
+						<svg>
+							<use href="${icons}#icon-arrow"/>
+						</svg>
+				</form>
 				<div class="nav__links">
 					<svg class="nav__links--github nav__link" data-url="https://github.com/jaxineC">
 						<use href="${icons}#icon-github" />
@@ -565,6 +574,18 @@ const downloadPDF = function (url, fileName) {
 	link.dispatchEvent(new MouseEvent("click"));
 };
 
+const addHandlerLogin = function () {
+	const loginBtn = document.querySelector(".nav__login");
+	loginBtn.addEventListener("click", userLogin);
+};
+
+const userLogin = function () {
+	console.log(stateObj.user == true);
+	stateObj.user == true
+		? (stateObj.user = "")
+		: document.querySelector(".nav__login-inputs").classList.remove("hide");
+};
+
 const init = function () {
 	generateMarkupMain();
 	renderTemplate("header", markupHeader);
@@ -580,5 +601,6 @@ const init = function () {
 	});
 	addHandlerWindowSize(handleResize);
 	addHandlerDownload(fileCV, "cv_Jaxine_Chang");
+	addHandlerLogin();
 };
 init();

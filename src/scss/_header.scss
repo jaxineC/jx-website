@@ -127,6 +127,27 @@
 			}
 		}
 	}
+	&__login-inputs {
+		position: fixed;
+		right: 0px;
+		top: 60px;
+		height: 34px;
+		display: flex;
+		flex-direction: row;
+		align-items: baseline;
+		input {
+			border-width: 0px 0px 1px 0px;
+			background-color: var(--offWhite);
+			margin: auto 10px;
+			padding: 5px 10px;
+		}
+		svg {
+			height: 30px;
+			width: 30px;
+			background-color: var(--offWhite);
+			border: none;
+		}
+	}
 	&__login--status {
 		height: 30px;
 		padding: 0 0.25rem;
