@@ -27,21 +27,6 @@ const markupHeader = `
 				<div class="nav__home nav__page--to" data-page="home">Home</div>
 				<div class="nav__cv nav__page--to"  data-page="cv">CV</div>
 				<div class="nav__contact nav__page--to" data-page="contact">Contact</div>
-				<div class="nav__login">
-					<svg class="nav__login--icon">
-							<use href="${icons}#icon-user" />
-					</svg>
-					<span class="nav__login--status">${
-						stateObj.user == true ? "log out" : "Log in"
-					}</span>
-				</div>
-				<form class="nav__login-inputs hide">
-					<input name="email" placeholder="Email" />
-					<input name="password" placeholder="Password" />
-						<svg>
-							<use href="${icons}#icon-arrow"/>
-						</svg>
-				</form>
 				<div class="nav__links">
 					<svg class="nav__links--github nav__link" data-url="https://github.com/jaxineC">
 						<use href="${icons}#icon-github" />
@@ -287,8 +272,8 @@ const generateMarkupMain = function () {
 						<form class="contact__form">
 							<input type="hidden" name="contact_number">
 							<input class="contact__section-input contact__form-name input" type="text" name="user_name" placeholder="Name"/>
-							<input class="contact__section-input contact__form-email input" type="email" name="user_email" placeholder="Email"/>
-							<textarea class="contact__section-input contact__form-msg input" name="message" rows="4" cols="50" placeholder="Message Here"></textarea>
+							<input class="contact__section-input contact__form-email input" type="email" name="user_email" placeholder="Email" required/>
+							<textarea class="contact__section-input contact__form-msg input" name="message" rows="4" cols="50" placeholder="Message Here" required></textarea>
 							<button class="contact__form-btn" type="submit">Send</button>
 						</form>
 					</p>
@@ -461,13 +446,13 @@ const addHandler = function () {
 		case "cv":
 			break;
 		case "contact":
-			(function () {
-				emailjs.init("LoKIzut9EdFNqs_7j");
-			})();
 			document
 				.querySelector(".contact__form")
 				.addEventListener("submit", function (event) {
 					event.preventDefault();
+					(function () {
+						emailjs.init("LoKIzut9EdFNqs_7j");
+					})();
 					this.contact_number.value = (Math.random() * 100000) | 0;
 					emailjs.sendForm("service_da86wqm", "template_um6v3my", this).then(
 						function () {
@@ -480,6 +465,11 @@ const addHandler = function () {
 							renderTemplate("main", markupMain);
 						},
 						function (error) {
+							renderModal(
+								"icon-warning",
+								"Oops!",
+								"Something went wrong, please try again."
+							);
 							console.log("FAILED...", error);
 						}
 					);
@@ -574,18 +564,6 @@ const downloadPDF = function (url, fileName) {
 	link.dispatchEvent(new MouseEvent("click"));
 };
 
-const addHandlerLogin = function () {
-	const loginBtn = document.querySelector(".nav__login");
-	loginBtn.addEventListener("click", userLogin);
-};
-
-const userLogin = function () {
-	console.log(stateObj.user == true);
-	stateObj.user == true
-		? (stateObj.user = "")
-		: document.querySelector(".nav__login-inputs").classList.remove("hide");
-};
-
 const init = function () {
 	generateMarkupMain();
 	renderTemplate("header", markupHeader);
@@ -601,6 +579,5 @@ const init = function () {
 	});
 	addHandlerWindowSize(handleResize);
 	addHandlerDownload(fileCV, "cv_Jaxine_Chang");
-	addHandlerLogin();
 };
 init();
