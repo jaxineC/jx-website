@@ -11,7 +11,7 @@ $MqThreadMobile: 600px;
 	--black: #000;
 
 	--XXXL: 4rem;
-	--XXL: 3rem;
+	--XXL: 2.5rem;
 	--XL: 2rem;
 	--L: 1.5rem;
 	--M: 1rem;
@@ -56,12 +56,8 @@ button {
 	padding: 10px auto;
 	margin: 2rem 1rem;
 	padding: 0 2rem;
-}
-
-.btn {
 	&:hover {
 		cursor: pointer;
-		font-weight: 800;
 	}
 }
 

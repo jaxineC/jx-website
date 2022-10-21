@@ -5,7 +5,7 @@ import demoTpe from "../img/img-tpe-demo.png";
 import { TEMP_SEC } from "./config.js";
 // import cvPDF from "../img/Resume_EN.pdf";
 // import { internalIP } from "webpack-dev-server";
-
+import fileCV from "../img/Resume_EN.pdf";
 const app = document.querySelector(".App");
 const stateObj = {
 	user: "",
@@ -24,10 +24,10 @@ const markupHeader = `
 			<div><span class="ft-highlight">web developer</span>+ designer</div>
 		</div>
 		<nav class="header__right nav nav__pages">
-				<div class="nav__home nav__page--to btn" data-page="home">Home</div>
-				<div class="nav__cv nav__page--to btn"  data-page="cv">CV</div>
-				<div class="nav__contact nav__page--to btn" data-page="contact">Contact</div>
-				<div class="nav__login btn">
+				<div class="nav__home nav__page--to" data-page="home">Home</div>
+				<div class="nav__cv nav__page--to"  data-page="cv">CV</div>
+				<div class="nav__contact nav__page--to" data-page="contact">Contact</div>
+				<div class="nav__login">
 					<svg class="nav__login--icon">
 							<use href="${icons}#icon-user" />
 					</svg>
@@ -95,7 +95,9 @@ const generateMarkupMain = function () {
 						<p  class="cv__summary-p">
 							After self-learning to code for almost a year, I am ready to start a new career as a front-end developer.
 						</p>
-						<button  class="cv__summary-download">Download full cv</button>
+						<button  class="cv__summary-download downloadCV">Download full cv</button>
+
+						
 					</section>
 					<section class="cv__section cv__skills">
 						<div class="cv__section-highlight"></div>
@@ -327,7 +329,8 @@ const generateMarkupMain = function () {
 						<span>Git</span>
 						<span>Prettier</span>
 						<span>Adobe CC Illustrator</span>
-						<div><button class="sections__skills-download">Download full resume</button></div>
+						<div><button class="sections__skills-download downloadCV">Download full CV</button>
+						</div>
 					</div>
 				</section>
 				<section class="sections__portfolio">
@@ -518,7 +521,6 @@ const navPageTo = function (e) {
 		addHandler();
 	}
 };
-const downloadPDF = () => console.log("downloadPDF");
 
 const addHendlerToggleMenu = function () {
 	const menuIcon = document.querySelector(".header__right-menuIcon");
@@ -549,6 +551,20 @@ const debounce = function (func, timeout = 1000) {
 	};
 };
 
+const addHandlerDownload = function (url, fileName) {
+	document.querySelector(".downloadCV").addEventListener("click", () => {
+		downloadPDF(url, fileName);
+	});
+};
+
+const downloadPDF = function (url, fileName) {
+	var link = document.createElement("a");
+	link.href = url;
+	link.download = fileName;
+	link.textContent = "Link created from btn";
+	link.dispatchEvent(new MouseEvent("click"));
+};
+
 const init = function () {
 	generateMarkupMain();
 	renderTemplate("header", markupHeader);
@@ -563,5 +579,6 @@ const init = function () {
 		// window.location = "./";
 	});
 	addHandlerWindowSize(handleResize);
+	addHandlerDownload(fileCV, "cv_Jaxine_Chang");
 };
 init();

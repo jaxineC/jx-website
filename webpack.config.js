@@ -47,7 +47,7 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				test: /\.(png|svg|jpg|jpeg|gif|pdf)$/i,
 				dependency: { not: ["url"] },
 				type: "javascript/auto",
 				use: [
