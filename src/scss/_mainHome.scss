@@ -196,6 +196,7 @@
 			position: absolute;
 			left: calc(var(--XXL) * 2 + 58vw);
 			align-self: center;
+			z-index: -99;
 			@media only screen and (max-width: $MqThreadLaptop) {
 			}
 			@media screen and (max-width: $MqThreadMobile) {
@@ -205,6 +206,7 @@
 				object-fit: cover;
 				overflow: scroll;
 				object-position: top;
+				z-index: inherit;
 			}
 		}
 	}

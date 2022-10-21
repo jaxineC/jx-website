@@ -24,10 +24,10 @@ const markupHeader = `
 			<div><span class="ft-highlight">web developer</span>+ designer</div>
 		</div>
 		<nav class="header__right nav nav__pages">
-				<div class="nav__home nav__page--to" data-page="home">Home</div>
-				<div class="nav__cv nav__page--to"  data-page="cv">CV</div>
-				<div class="nav__contact nav__page--to" data-page="contact">Contact</div>
-				<div class="nav__login">
+				<div class="nav__home nav__page--to btn" data-page="home">Home</div>
+				<div class="nav__cv nav__page--to btn"  data-page="cv">CV</div>
+				<div class="nav__contact nav__page--to btn" data-page="contact">Contact</div>
+				<div class="nav__login btn">
 					<svg class="nav__login--icon">
 							<use href="${icons}#icon-user" />
 					</svg>
@@ -52,32 +52,6 @@ const markupHeader = `
 			<svg class="header__right-menuIcon">
 				<use href="${icons}#icon-menu" />
 			</svg>
-			<div class="header__menu-unfold hide">
-				<div class="nav__home nav__page--to" data-page="home">Home</div>
-				<div class="nav__cv nav__page--to"  data-page="cv">CV</div>
-				<div class="nav__contact nav__page--to" data-page="contact">Contact</div>
-				<div class="nav__login">
-					<svg class="nav__login--icon">
-							<use href="${icons}#icon-user" />
-					</svg>
-					<span class="nav__login--status">Log in</span>
-				</div>
-				<div class="nav__links">
-					<svg class="nav__links--github nav__link" data-url="https://github.com/jaxineC?tab=repositories">
-						<use href="${icons}#icon-github" />
-					</svg>
-					<svg class="nav__links--fb nav__link" data-url="https://www.facebook.com/chiahsing.chang.50">
-						<use href="${icons}#icon-fb" />
-					</svg>
-					<svg class="nav__links--linkedIn nav__link"  data-url="https://www.linkedin.com/in/chia-hsing-chang-a41590136/">
-						<use href="${icons}#icon-linkedIn" />
-					</svg>
-					<svg class="nav__links--email nav__link" data-url="mailto:jaxine.c@gmail.com">
-						<use href="${icons}#icon-email"/>
-					</svg>
-				</div>
-			</div>
-
 		</nav>
 		<div class="header__background"></div>
 		<div class="header__line"></div>
@@ -549,12 +523,30 @@ const downloadPDF = () => console.log("downloadPDF");
 const addHendlerToggleMenu = function () {
 	const menuIcon = document.querySelector(".header__right-menuIcon");
 	menuIcon.addEventListener("click", function () {
-		const menu = document.querySelector(".header__menu-unfold");
-		console.log(menu.classList.value.includes("hide"));
-		menu.classList.value.includes("hide")
-			? menu.classList.remove("hide")
-			: menu.classList.add("hide");
+		const menu = document.querySelector(".header__right");
+		menu.style.display == "none"
+			? (menu.style.display = "flex")
+			: (menu.style.display = "none");
 	});
+};
+const addHandlerWindowSize = function (func) {
+	window.addEventListener("resize", handleResize);
+};
+
+const handleResize = function () {
+	window.innerWidth >= 600
+		? (document.querySelector(".header__right").style.display = "flex")
+		: (document.querySelector(".header__right").style.display = "none");
+};
+const debounce = function (func, timeout = 1000) {
+	let timer;
+	return (...args) => {
+		console.log("here");
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			func.apply(this, args);
+		}, timeout);
+	};
 };
 
 const init = function () {
@@ -566,8 +558,10 @@ const init = function () {
 	addHandlerNavPageTo(navPageTo);
 	addHendlerToggleMenu();
 	addHandlerBackToTop();
-	document
-		.querySelector(".header__left")
-		.addEventListener("click", () => (window.location = "./"));
+	document.querySelector(".header__left").addEventListener("click", () => {
+		console.log(window.innerWidth);
+		// window.location = "./";
+	});
+	addHandlerWindowSize(handleResize);
 };
 init();

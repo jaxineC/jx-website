@@ -5,6 +5,7 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+
 	&__left {
 		margin-left: 1rem;
 		width: 35%;
@@ -19,6 +20,20 @@
 		justify-content: space-between;
 		@media only screen and (max-width: $MqThreadMobile) {
 			display: none;
+			flex-direction: column;
+			width: 200px;
+			position: fixed;
+			top: 100px;
+			right: 0px;
+			padding: 1rem;
+			background: var(--white);
+			z-index: 99;
+			div {
+				padding: 0.5rem 0;
+				border: 0px;
+				border-radius: 0px;
+				border-bottom: 1px solid var(--lightGrey);
+			}
 		}
 	}
 	&__right-menu {
@@ -72,27 +87,12 @@
 
 	&__home {
 		text-align: center;
-
-		&:hover {
-			cursor: pointer;
-			font-weight: 800;
-		}
 	}
 	&__cv {
 		text-align: center;
-
-		&:hover {
-			cursor: pointer;
-			font-weight: 800;
-		}
 	}
 	&__contact {
 		text-align: center;
-
-		&:hover {
-			cursor: pointer;
-			font-weight: 800;
-		}
 	}
 	&__login {
 		display: flex;
@@ -102,8 +102,6 @@
 		border-radius: 50px;
 		padding: 0 0.5rem;
 		&:hover {
-			cursor: pointer;
-			font-weight: 800;
 			border-color: var(--darkGrey);
 			svg {
 				opacity: 1;
@@ -125,21 +123,5 @@
 		@media only screen and (max-width: $MqThreadMobile) {
 			justify-content: center;
 		}
-	}
-}
-
-.header__menu-unfold {
-	width: 200px;
-	position: fixed;
-	top: 100px;
-	right: 0px;
-	padding: 1rem;
-	background: var(--white);
-	z-index: 99;
-	div {
-		padding: 0.5rem 0;
-		border: 0px;
-		border-radius: 0px;
-		border-bottom: 1px solid var(--lightGrey);
 	}
 }
