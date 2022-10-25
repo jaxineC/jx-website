@@ -2,7 +2,7 @@
 .sections {
 	margin: 0 var(--XXL);
 	@media screen and (max-width: $MqThreadMobile) {
-		margin: 0 var(--L);
+		margin: 0 var(--M);
 	}
 	&__summary {
 		height: 100vh;
@@ -144,7 +144,7 @@
 		}
 	}
 	&-project {
-		padding: 4rem;
+		padding: var(--XXL);
 		background-color: var(--offWhite);
 		width: 50vw;
 		display: flex;

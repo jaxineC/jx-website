@@ -9,7 +9,6 @@ $MqThreadMobile: 600px;
 	--grey: #999;
 	--darkGrey: #333;
 	--black: #000;
-
 	--XXXL: 4rem;
 	--XXL: 2.5rem;
 	--XL: 2rem;
@@ -17,6 +16,11 @@ $MqThreadMobile: 600px;
 	--M: 1rem;
 	--S: 0.75rem;
 	--XS: 0.5rem;
+	@media only screen and (max-width: $MqThreadMobile) {
+		--XXXL: 2.5rem;
+		--XXL: 2rem;
+		--XL: 1.8rem;
+	}
 }
 
 .ft-heavy {
