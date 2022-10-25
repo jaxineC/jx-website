@@ -12,12 +12,7 @@ const stateObj = {
 	page: "", //'home', 'cv', 'blog', 'contact'
 };
 
-const renderTemplate = function (parentClass, markup) {
-	const parentElement = document.querySelector(`.${parentClass}`);
-	// parentElement.insertAdjacentHTML("beforeend", markup);
-	parentElement.innerHTML = markup;
-};
-
+// templates
 const markupHeader = `
 		<div class="header__left">
 			<div>I'm <span class="ft-heavy">Jaxine Chang</span></div>
@@ -51,7 +46,6 @@ const markupHeader = `
 		<div class="header__line"></div>
 `;
 let markupMain;
-
 const markupFooter = `
 	<div class="footer__text">
 		UI/ UX is inspired by Wix.com templates + Udemy JavaScript online
@@ -60,14 +54,6 @@ const markupFooter = `
 	<div class="footer__backToTop">Back To Top</div>
 	<div class="footer__background"></div>
 `;
-
-const addHandlerBackToTop = function () {
-	const btn = document.querySelector(".footer__backToTop");
-	btn.addEventListener("click", function () {
-		window.scroll(0, 0);
-	});
-};
-
 const generateMarkupMain = function () {
 	const target = window.location.href.split("/").at(-1);
 	switch (target) {
@@ -90,8 +76,6 @@ const generateMarkupMain = function () {
 							After self-learning to code for almost a year, I am ready to start a new career as a front-end developer.
 						</p>
 						<button  class="cv__summary-download downloadCV">Download full cv</button>
-
-						
 					</section>
 					<section class="cv__section cv__skills">
 						<div class="cv__section-highlight"></div>
@@ -428,10 +412,42 @@ const generateMarkupMain = function () {
 	}
 };
 
-// External Links
-const addHandlerExternalLinks = function (func) {
-	const navLink = document.querySelector(".nav__links");
-	navLink.addEventListener("click", func);
+// functions
+const renderTemplate = function (parentClass, markup) {
+	const parentElement = document.querySelector(`.${parentClass}`);
+	// parentElement.insertAdjacentHTML("beforeend", markup);
+	parentElement.innerHTML = markup;
+};
+const renderModal = function (icon, msg, detail) {
+	const markup = `
+		<svg class="modal__icon">
+			<use href="${icons}#${icon}" />
+		</svg>
+		<div class="modal__msg">${msg}</div>
+		<div class="modal__detail">${detail}</div>
+	`;
+	const parentElem = document.querySelector(".modal__window");
+	parentElem.innerHTML = markup;
+	document.querySelector(".modal").classList.remove("hide");
+	setTimeout(
+		() => document.querySelector(".modal").classList.add("hide"),
+		TEMP_SEC * 1000
+	);
+};
+
+const openExternalLink = function (e) {
+	if (e.target.classList.contains("nav__link")) {
+		window.open(e.target.dataset.url);
+	}
+};
+
+const navPageTo = function (e) {
+	if (e.target.classList.contains("nav__page--to")) {
+		history.replaceState(stateObj, "_", `${e.target.dataset.page}`);
+		generateMarkupMain();
+		renderTemplate("main", markupMain);
+		addHandler();
+	}
 };
 
 const clearInput = function () {
@@ -440,10 +456,35 @@ const clearInput = function () {
 	});
 };
 
+const handleResize = function () {
+	window.innerWidth >= 600
+		? (document.querySelector(".header__right").style.display = "flex")
+		: (document.querySelector(".header__right").style.display = "none");
+};
+const debounce = function (func, timeout = 1000) {
+	let timer;
+	return (...args) => {
+		console.log("here");
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			func.apply(this, args);
+		}, timeout);
+	};
+};
+
+const downloadPDF = function (url, fileName) {
+	var link = document.createElement("a");
+	link.href = url;
+	link.download = fileName;
+	link.dispatchEvent(new MouseEvent("click"));
+};
+
+// add handler
 const addHandler = function () {
 	const target = window.location.href.split("/").at(-1);
 	switch (target) {
 		case "cv":
+			addHandlerDownload(fileCV, "cv_Jaxine_Chang");
 			break;
 		case "contact":
 			document
@@ -476,52 +517,14 @@ const addHandler = function () {
 				});
 			break;
 		default:
-			document
-				.querySelector(".sections__skills-download")
-				.addEventListener("click", downloadPDF);
+			addHandlerDownload(fileCV, "cv_Jaxine_Chang");
 	}
 };
-
 const addHandlerNavPageTo = function (func) {
 	const page = document.querySelector(".nav__pages");
 	page.addEventListener("click", func);
 };
-
-const renderModal = function (icon, msg, detail) {
-	const markup = `
-		<svg class="modal__icon">
-			<use href="${icons}#${icon}" />
-		</svg>
-		<div class="modal__msg">${msg}</div>
-		<div class="modal__detail">${detail}</div>
-	`;
-	const parentElem = document.querySelector(".modal__window");
-	parentElem.innerHTML = markup;
-	document.querySelector(".modal").classList.remove("hide");
-	setTimeout(
-		() => document.querySelector(".modal").classList.add("hide"),
-		TEMP_SEC * 1000
-	);
-};
-
-// Controller
-
-const openExternalLink = function (e) {
-	if (e.target.classList.contains("nav__link")) {
-		window.open(e.target.dataset.url);
-	}
-};
-
-const navPageTo = function (e) {
-	if (e.target.classList.contains("nav__page--to")) {
-		history.replaceState(stateObj, "_", `${e.target.dataset.page}`);
-		generateMarkupMain();
-		renderTemplate("main", markupMain);
-		addHandler();
-	}
-};
-
-const addHendlerToggleMenu = function () {
+const addHandlerToggleMenu = function () {
 	const menuIcon = document.querySelector(".header__right-menuIcon");
 	menuIcon.addEventListener("click", function () {
 		const menu = document.querySelector(".header__right");
@@ -533,35 +536,20 @@ const addHendlerToggleMenu = function () {
 const addHandlerWindowSize = function (func) {
 	window.addEventListener("resize", handleResize);
 };
-
-const handleResize = function () {
-	window.innerWidth >= 600
-		? (document.querySelector(".header__right").style.display = "flex")
-		: (document.querySelector(".header__right").style.display = "none");
+const addHandlerBackToTop = function () {
+	const btn = document.querySelector(".footer__backToTop");
+	btn.addEventListener("click", function () {
+		window.scroll(0, 0);
+	});
 };
-const debounce = function (func, timeout = 1000) {
-	let timer;
-	return (...args) => {
-		console.log("here");
-		clearTimeout(timer);
-		timer = setTimeout(() => {
-			func.apply(this, args);
-		}, timeout);
-	};
-};
-
 const addHandlerDownload = function (url, fileName) {
 	document.querySelector(".downloadCV").addEventListener("click", () => {
 		downloadPDF(url, fileName);
 	});
 };
-
-const downloadPDF = function (url, fileName) {
-	var link = document.createElement("a");
-	link.href = url;
-	link.download = fileName;
-	link.textContent = "Link created from btn";
-	link.dispatchEvent(new MouseEvent("click"));
+const addHandlerExternalLinks = function (func) {
+	const navLink = document.querySelector(".nav__links");
+	navLink.addEventListener("click", func);
 };
 
 const init = function () {
@@ -569,15 +557,18 @@ const init = function () {
 	renderTemplate("header", markupHeader);
 	renderTemplate("main", markupMain);
 	renderTemplate("footer", markupFooter);
+	// general
+	addHandlerWindowSize(handleResize);
+	// header
 	addHandlerExternalLinks(openExternalLink);
-	addHandlerNavPageTo(navPageTo);
-	addHendlerToggleMenu();
+	addHandlerToggleMenu();
+	addHandlerNavPageTo(navPageTo); // incl. main
+	// footer
 	addHandlerBackToTop();
+	// for testing
 	document.querySelector(".header__left").addEventListener("click", () => {
 		console.log(window.innerWidth);
 		// window.location = "./";
 	});
-	addHandlerWindowSize(handleResize);
-	addHandlerDownload(fileCV, "cv_Jaxine_Chang");
 };
 init();
