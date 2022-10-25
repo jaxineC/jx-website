@@ -257,7 +257,7 @@ const generateMarkupMain = function () {
 							<input type="hidden" name="contact_number">
 							<input class="contact__section-input contact__form-name input" type="text" name="user_name" placeholder="Name"/>
 							<input class="contact__section-input contact__form-email input" type="email" name="user_email" placeholder="Email" required/>
-							<textarea class="contact__section-input contact__form-msg input" name="message" rows="4" cols="50" placeholder="Message Here" required></textarea>
+							<textarea class="contact__section-input contact__form-msg input" name="message" rows="6" cols="50" placeholder="Message Here" required></textarea>
 							<button class="contact__form-btn" type="submit">Send</button>
 						</form>
 					</p>
