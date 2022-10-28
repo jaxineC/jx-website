@@ -189,12 +189,12 @@
 			}
 		}
 		&-image-tpe {
-			width: 25vw;
+			width: 20vw;
 			max-height: 120vh;
 			object-position: top;
 			object-fit: cover;
 			position: absolute;
-			left: calc(var(--XXL) * 2 + 58vw);
+			left: calc((100vw - 1200px) / 2 + var(--XXL) * 2 + 50vw);
 			align-self: center;
 			z-index: -99;
 			@media only screen and (max-width: $MqThreadLaptop) {

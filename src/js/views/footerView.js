@@ -1,28 +1,31 @@
 import View from "./View.js";
 
-class FooterView {
-	constructor(parentClass, markup) {
+class FooterView extends View {
+	constructor(parentClass) {
+		super();
 		this.parentClass = parentClass;
-		this.markup = markup;
-	}
-	renderTemplate() {
-		const parentElement = document.querySelector(`.${this.parentClass}`);
-		// const markup = this._generateMarkup();
-		// parentElement.insertAdjacentHTML("beforeend", markup);
-		console.log(parentElement);
-		parentElement.innerHTML = this.markup;
 	}
 
+	// PUBLIC METHODS
+	addHandler(func) {
+		this._addHandlerBackToTop(func);
+	}
+
+	// PRIVATE METHODS
+	_addHandlerBackToTop(func) {
+		const btn = document.querySelector(".footer__backToTop");
+		btn.addEventListener("click", func);
+	}
 	_generateMarkup() {
-		const markupFooter = `
-      <div class="footer__text">
-        UI/ UX is inspired by Wix.com templates + Udemy JavaScript online
-        courses by Jonas Schmedtmann.
-      </div>
-      <div class="footer__backToTop">Back To Top</div>
-      <div class="footer__background"></div>
-    `;
-		return markupFooter;
+		const markup = `
+			<div class="footer__text">
+				UI/ UX is inspired by Wix.com templates + Udemy JavaScript online
+				courses by Jonas Schmedtmann.
+			</div>
+			<div class="footer__backToTop">Back To Top</div>
+			<div class="footer__background"></div>
+		`;
+		return markup;
 	}
 }
 
