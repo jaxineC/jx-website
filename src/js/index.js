@@ -1,11 +1,14 @@
+import normalize from "normalize.css";
 import "../scss/style.scss";
 import footerView from "./views/footerView.js";
 import mainView from "./views/mainView.js";
 import headerView from "./views/headerView.js";
+import { TEMP_SEC, MOBILE_THREAD } from "./config.js";
 
 const stateObj = {
 	user: "",
-	page: "", //'home', 'cv', 'blog', 'contact'
+	page: "", //'home', 'cv', 'blog', 'contact',
+	device: "",
 };
 
 // FUNCTIONS
@@ -13,7 +16,7 @@ const backToHome = function () {
 	window.location = "./";
 };
 const navPageTo = function (e) {
-	if (e.target.classList.contains("nav__page--to")) {
+	if (e.target.classList.contains("nav__page")) {
 		history.replaceState(stateObj, "_", `${e.target.dataset.page}`);
 		mainView.renderMarkup();
 		mainView.addHandler(downloadPDF, sendMessage);
@@ -61,12 +64,17 @@ const sendMessage = function (event) {
 	);
 };
 
+const checkDevice = function () {
+	stateObj.device = window.innerWidth > MOBILE_THREAD ? "desktop" : "mobile";
+};
+
 // TEMP
 const test = function (msg = "") {
 	alert(`it works! ${msg}`);
 };
 
 const init = function () {
+	checkDevice();
 	headerView.renderMarkup();
 	mainView.renderMarkup();
 	footerView.renderMarkup();

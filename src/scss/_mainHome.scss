@@ -1,7 +1,7 @@
 .home,
 .sections {
 	margin: 0 var(--XXL);
-	@media screen and (max-width: $MqThreadMobile) {
+	@include mq("mobile") {
 		margin: 0 var(--M);
 	}
 	&__summary {
@@ -10,7 +10,7 @@
 		max-width: 40vw;
 		display: flex;
 		flex-wrap: wrap;
-		@media only screen and (max-width: $MqThreadMobile) {
+		@include mq("mobile") {
 			max-width: 100%;
 		}
 	}
@@ -23,8 +23,6 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		@media only screen and (max-width: $MqThreadMobile) {
-		}
 	}
 	&__training-title {
 		font-size: var(--XL);
@@ -88,7 +86,7 @@
 		max-width: 40vw;
 		height: 100%;
 		z-index: 999;
-		@media only screen and (max-width: $MqThreadMobile) {
+		@include mq("mobile") {
 			max-width: 100%;
 		}
 		div {
@@ -125,14 +123,14 @@
 		font-size: var(--XL);
 		z-index: 99;
 		position: absolute;
-		left: calc((100vw - $MqThreadLaptop) / 2 + var(--XXL) * 2 + 50vw);
+		left: calc((100vw - $MqThreadDesktop) / 2 + var(--XXL) * 2 + 50vw);
 		width: 8vw;
 		height: 120vh;
 		background-color: var(--theme);
-		@media only screen and (max-width: $MqThreadLaptop) {
+		@include mq("desktop") {
 			left: calc(var(--XXL) * 2 + 50vw);
 		}
-		@media only screen and (max-width: $MqThreadMobile) {
+		@include mq("mobile") {
 			z-index: -99;
 			position: absolute;
 			top: calc(200vh + 200px);
@@ -150,9 +148,10 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		@media only screen and (max-width: $MqThreadMobile) {
+		@include mq("mobile") {
 			width: 100%;
 		}
+		@include li-typ;
 		&-text {
 			font-size: var(--M);
 
@@ -178,10 +177,10 @@
 			right: 0px;
 			transform: translateY(-16vw);
 			z-index: -99;
-			@media only screen and (max-width: $MqThreadLaptop) {
+			@include mq("desktop") {
 				left: calc(var(--XXL) * 1 + 55vw);
 			}
-			@media screen and (max-width: $MqThreadMobile) {
+			@include mq("mobile") {
 				width: 100%;
 				position: static;
 				transform: translateY(0px);
@@ -197,9 +196,7 @@
 			left: calc((100vw - 1200px) / 2 + var(--XXL) * 2 + 50vw);
 			align-self: center;
 			z-index: -99;
-			@media only screen and (max-width: $MqThreadLaptop) {
-			}
-			@media screen and (max-width: $MqThreadMobile) {
+			@include mq("mobile") {
 				width: 100%;
 				height: 30vh;
 				position: static;
@@ -222,7 +219,7 @@
 	&-course {
 		width: 40%;
 		margin-bottom: var(--XL);
-		@media only screen and (max-width: $MqThreadMobile) {
+		@include mq("mobile") {
 			width: 80%;
 			margin-bottom: var(--XL);
 		}
@@ -243,8 +240,4 @@
 			padding: 10px 0;
 		}
 	}
-}
-li {
-	list-style-type: "-  ";
-	transform: translateX(1.5rem);
 }

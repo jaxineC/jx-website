@@ -1,6 +1,9 @@
-$MqThreadLaptop: 1200px;
-$MqThreadMobile: 600px;
+//------------ ABSTRACT STUFF -------------//
+//--VARIABLES, MIXINS, FUNCTIONS, EXTENDS--//
 
+//------------ VARIABLES -------------//
+$MqThreadDesktop: 75rem;
+$MqThreadMobile: 37.5rem;
 :root {
 	--theme: #e6f252;
 	--white: #fff;
@@ -9,47 +12,66 @@ $MqThreadMobile: 600px;
 	--grey: #999;
 	--darkGrey: #333;
 	--black: #000;
-	--XXXL: 4rem;
-	--XXL: 2.5rem;
-	--XL: 2rem;
-	--L: 1.5rem;
-	--M: 1rem;
-	--S: 0.75rem;
-	--XS: 0.5rem;
-	@media only screen and (max-width: $MqThreadMobile) {
-		--XXXL: 2.5rem;
-		--XXL: 2rem;
-		--XL: 1.8rem;
+	// font-size
+	--XXXL: 6.4em;
+	--XXL: 4.8em;
+	--XL: 3.2em;
+	--L: 2.4em;
+	--M: 1.6em;
+	--S: 1em;
+	--XS: 0.8em;
+	--XXS: 0.4em;
+	--XXXS: 0.2em;
+	//font-weight
+	--heavy: 900;
+	--bold: 700;
+	--medium: 500;
+	--regular: 400;
+	--light: 300;
+	//line-height
+	--defult: 1;
+	--small: 1.05;
+	--medium: 1.2;
+	--paragraph: 1.6;
+	--large: 1.8;
+}
+
+//------------ MIXINS -------------//
+@mixin mq($device) {
+	@if ($device == "desktop") {
+		// 1200px/16px=75
+		@media only screen and (max-width: $MqThreadDesktop) {
+			@content;
+		}
+	}
+	@if ($device == "mobile") {
+		// 600px/16px=37.5
+		@media only screen and (max-width: $MqThreadMobile) {
+			@content;
+		}
 	}
 }
 
-.ft-heavy {
-	font-weight: 900;
+@mixin link-hover {
+	&:hover {
+		cursor: pointer;
+		font-weight: 800;
+		opacity: 1;
+	}
 }
 
-.ft-highlight {
-	position: relative;
-	background-color: var(--theme);
+@mixin highlight-hover($color) {
+	color: $color;
 }
 
-// .ft-highlight::after {
-// 	content: "";
-// 	position: absolute;
-// 	bottom: 1px;
-// 	transform: translateX(-100%);
-// 	z-index: -1;
-// 	height: 100%;
-// 	width: 100%;
-// 	background-color: var(--theme);
-// }
-
-.hide {
-	display: none;
-	position: absolute;
-	top: 0px;
+@mixin li-typ {
+	li {
+		list-style-type: "- ";
+		transform: translateX(1rem);
+	}
 }
 
-button {
+@mixin btn-typ {
 	height: 3rem;
 	background-color: var(--white);
 	font-size: var(--M);
@@ -63,6 +85,28 @@ button {
 	&:hover {
 		cursor: pointer;
 	}
+}
+
+@function calcPosition($containerWidth, $currentMargin, $extraElem) {
+	@return (100vw - $containerWidth / 2 + $currentMargin * 2 + $extraElem);
+}
+
+.container {
+	max-width: 75em;
+	position: relative;
+}
+
+.ft-heavy {
+	font-weight: 900;
+}
+
+.ft-highlight {
+	position: relative;
+	background-color: var(--theme);
+}
+
+.hide {
+	display: none;
 }
 
 .modal {

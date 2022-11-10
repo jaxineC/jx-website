@@ -41,15 +41,9 @@ export default class View {
 		const markup = ``;
 		return markup;
 	}
-	_handleResize() {
-		window.innerWidth >= MOBILE_THREAD
-			? (document.querySelector(".header__right").style.display = "flex")
-			: (document.querySelector(".header__right").style.display = "none");
-	}
+
 	_handleToggleMenu() {
-		const menu = document.querySelector(".header__right");
-		menu.style.display == "none"
-			? (menu.style.display = "flex")
-			: (menu.style.display = "none");
+		const menu = document.querySelector(".header");
+		menu.classList.toggle("header__nav--mobileOpenMenu");
 	}
 }

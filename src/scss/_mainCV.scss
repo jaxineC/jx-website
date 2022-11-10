@@ -11,7 +11,7 @@
 	&__summary {
 		width: 60%;
 		margin-bottom: 150px;
-		@media only screen and (max-width: $MqThreadMobile) {
+		@include mq("mobile") {
 			width: 100%;
 		}
 		&-p {

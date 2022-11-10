@@ -1,5 +1,6 @@
 import View from "./View.js";
 import icons from "../../img/icons.svg";
+import { TEMP_SEC, MOBILE_THREAD } from "../config.js";
 
 class HeaderView extends View {
 	constructor(parentClass) {
@@ -9,18 +10,20 @@ class HeaderView extends View {
 
 	// PUBLIC METHODS
 	addHandler(func1, func2, func3) {
-		window.addEventListener("resize", this._handleResize);
 		document
-			.querySelector(".header__right-menuIcon")
+			.querySelector(".header__menu")
 			.addEventListener("click", this._handleToggleMenu);
 		this._addHandlerLogo(func1);
 		this._addHandlerNavPageTo(func2);
 		this._addHandlerExternalLinks(func3);
 	}
+	test() {
+		alert(`it works!`);
+	}
 
 	// PRIVATE METHODS
 	_addHandlerLogo(func) {
-		const logo = document.querySelector(".header__left");
+		const logo = document.querySelector(".header__logo");
 		logo.addEventListener("click", func);
 	}
 	_addHandlerNavPageTo(func) {
@@ -33,35 +36,41 @@ class HeaderView extends View {
 	}
 	_generateMarkup() {
 		const markup = `
-		<div class="header__left">
+		<div class="header__logo" data-href="#">
 			<div>I'm <span class="ft-heavy">Jaxine Chang</span></div>
 			<div><span class="ft-highlight">web developer</span>+ designer</div>
 		</div>
-		<nav class="header__right nav nav__pages">
-				<div class="nav__home nav__page--to" data-page="home">Home</div>
-				<div class="nav__cv nav__page--to"  data-page="cv">CV</div>
-				<div class="nav__contact nav__page--to" data-page="contact">Contact</div>
-				<div class="nav__links">
-					<svg class="nav__links--github nav__link" data-url="https://github.com/jaxineC">
-						<use href="${icons}#icon-github" />
-					</svg>
-					<svg class="nav__links--fb nav__link" data-url="https://www.facebook.com/chiahsing.chang.50">
-						<use href="${icons}#icon-fb" />
-					</svg>
-					<svg class="nav__links--linkedIn nav__link"  data-url="https://www.linkedin.com/in/chia-hsing-chang-a41590136/">
-						<use href="${icons}#icon-linkedIn" />
-					</svg>
-					<svg class="nav__links--email nav__link" data-url="mailto:jaxine.c@gmail.com">
-						<use href="${icons}#icon-email"/>
-					</svg>
-				</div>
+		<nav class="header__nav">
+			<ul class="nav__pages">
+				<li class="nav__page" data-page="home">Home</li>
+				<li class="nav__page-divider">|</li>
+				<li class="nav__page" data-page="cv">CV</li>
+				<li class="nav__page-divider">|</li>
+				<li class="nav__page" data-page="contact">Contact</li>
+			</ul>
+			<div class="nav__links">
+				<svg class="nav__link nav__links--github " data-url="https://github.com/jaxineC">
+					<use href="${icons}#icon-github" />
+				</svg>
+				<svg class="nav__link nav__links--fb" data-url="https://www.facebook.com/chiahsing.chang.50">
+					<use href="${icons}#icon-fb" />
+				</svg>
+				<svg class="nav__link nav__links--linkedIn"  data-url="https://www.linkedin.com/in/chia-hsing-chang-a41590136/">
+					<use href="${icons}#icon-linkedIn" />
+				</svg>
+				<svg class="nav__link nav__links--email" data-url="mailto:jaxine.c@gmail.com">
+					<use href="${icons}#icon-email"/>
+				</svg>
+			</div>
 		</nav>
-		<nav class="header__right-menu nav nav__pages">
-			<svg class="header__right-menuIcon">
+		<button class="header__menu">
+			<svg class="header__menu-icon" name="icon-menu">
 				<use href="${icons}#icon-menu" />
 			</svg>
-		</nav>
-		<div class="header__background"></div>
+			<svg class="header__menu-icon" name="icon-close">
+				<use href="${icons}#icon-close" />
+			</svg>
+		</button>
 		<div class="header__line"></div>
     `;
 		return markup;
