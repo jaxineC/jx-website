@@ -1,81 +1,56 @@
 .contact {
+	font-size: var(--L);
+	max-width: 120rem;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	justify-content: center;
-
+	justify-content: flex-start;
+	padding: 0 $screenPadding;
 	&__headline {
 		height: 50vh;
+		@include headline-page;
 	}
-
 	&__msg {
 		width: 60%;
 		margin-bottom: 15em;
 		&-p {
-			font-size: var(--L);
-			color: red;
+			margin-bottom: var(--L);
+		}
+		.contactInfo {
+			border-left: 1px solid var(--grey);
+			padding-left: 2rem;
+			font-size: 2rem;
+			font-style: italic;
+		}
+		&-title {
+			font-size: var(--XL);
+			line-height: 6rem;
+			margin-bottom: 1rem;
 		}
 		@include mq("mobile") {
 			width: 100%;
 		}
 	}
-}
-.contact__headline {
-	&-title {
-		position: absolute;
-		top: 30vh;
-		left: 0em;
-		font-size: var(--XXXL);
-		font-weight: 900;
-		line-height: 6rem;
-		padding-left: 1rem;
-	}
-	&-highlight {
-		width: 55vw;
-		height: 20vh;
-		background-color: var(--theme);
-		position: absolute;
-		transform: translateY(3rem);
-		top: 30vh;
-		left: 0px;
-		z-index: -99;
-	}
-}
-.contact__section {
-	&-title {
-		font-size: var(--XL);
-		line-height: 6rem;
-		margin-bottom: 1rem;
-	}
-	&-p {
-		font-size: var(--M);
-		margin-bottom: var(--L);
-	}
-	&-em {
-		font-size: var(--L);
-		margin-bottom: 0.5rem;
-	}
-}
-
-.contact__form {
-	input,
-	textarea {
-		width: 100%;
-		border: 0px solid black;
-		background-color: var(--offWhite);
-		padding: 1rem;
-		margin-bottom: 2rem;
-	}
-	input {
-		height: 3rem;
-	}
-	&-name {
-	}
-	&-email {
-	}
-	&-msg {
-		resize: vertical;
-	}
-	&-btn {
+	&__form {
+		input,
+		textarea {
+			font-size: var(--M);
+			width: 100%;
+			border: 0px solid black;
+			background-color: var(--offWhite);
+			padding: 2rem;
+			margin-bottom: 2rem;
+		}
+		input {
+			height: 3rem;
+		}
+		&-name {
+		}
+		&-email {
+		}
+		&-msg {
+			resize: vertical;
+		}
+		@include btn-typ;
 	}
 }

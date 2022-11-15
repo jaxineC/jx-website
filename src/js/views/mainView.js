@@ -57,7 +57,7 @@ class MainView extends View {
 						<section class="cv__section cv__summary" id="summary">
 							<h2 class="cv__section-title">Professional Summary</h2>
 							<p  class="cv__summary-p">
-								I am a front-end developer who majored in architecture and had worked as an architectural designer for years. 
+								I am a front-end developer who had worked as an architectural designer for years. 
 							</p>
 							<p  class="cv__summary-p">
 								It's lucky to learn in architecture that I learned to find problems and solve them, yet at the same time,  I was able to stay curious and open to possibilities.
@@ -70,35 +70,35 @@ class MainView extends View {
 						<section class="cv__section cv__skills">
 							<div class="cv__section-highlight"></div>
 							<h2 class="cv__section-title">Skills</h2>
+							<p class="cv__section-p">
+								<div class="cv__section-em">Front-end</div>
+								<span>html</span>
+								<span>CSS</span>
+								<span>JavaScript</span>
+								<span>React</span>
+								<span>styled-components</span>
+								<span>npm</span>
+								<span>webpack</span>
+								<span>babel</span>
+								<span>Sass</span>
+								<span>BEM</span>
+							</p>
 								<p class="cv__section-p">
-									<div class="cv__section-em">Front-end</div>
-									<span>html</span>
-									<span>CSS</span>
-									<span>JavaScript</span>
-									<span>React</span>
-									<span>styled-components</span>
-									<span>npm</span>
-									<span>webpack</span>
-									<span>babel</span>
-									<span>Sass</span>
-									<span>BEM</span>
+									<div class="cv__section-em">Dev-tool/ Cloud Service</div>
+									<span>Git</span>
+									<span>Prettier</span>
+									<span>ESlint</span>
+									<span>AWS EC2</span>
+									<span>Firebase Hosting/ Auth/ Firestore</span>
 								</p>
-							<p class="cv__section-p">
-								<div class="cv__section-em">Dev-tool/ Cloud Service</div>
-								<span>Git</span>
-								<span>Prettier</span>
-								<span>ESlint</span>
-								<span>AWS EC2</span>
-								<span>Firebase Hosting/ Auth/ Firestore</span>
-							</p>
-							<p class="cv__section-p">
-								<div class="cv__section-em">Back-end/ Others</div>
-								<span>python</span>
-								<span>Flask</span>
-								<span>MySQL</span>
-								<span>Adobe CC Photoshop</span>
-								<span>Illustrator</span>
-							</p>
+								<p class="cv__section-p">
+									<div class="cv__section-em">Back-end/ Others</div>
+									<span>python</span>
+									<span>Flask</span>
+									<span>MySQL</span>
+									<span>Adobe CC Photoshop</span>
+									<span>Illustrator</span>
+								</p>
 						</section>
 						<section class="cv__section cv__work">
 							<div class="cv__section-highlight"></div>
@@ -230,27 +230,29 @@ class MainView extends View {
 				break;
 			case "contact":
 				markup = `
-				<div class="contact">
+				<div class="contact container">
 					<section class="contact__headline">
 						<h1 class="contact__headline-title ft-heavy">Contact</h1>
 						<div class="contact__headline-highlight "></div>
 					</section>
-					<section class="contact__section contact__msg">
-						<h2 class="contact__section-title">Say HI here</h2>
-						<p class="contact__section-p">
-							<div class="contact__section-em">Jaxine Chang</div>
-							<div> email: jaxine.c@gmail.com</div>
-							<div> mobile: 0922 392 203</div>
+					<section class="contact__msg">
+						<h2 class="contact__msg-title">Say Hi</h2>
+						<p class="contact__msg-p contactInfo">
+							Jaxine Chang
+							<br/>
+							email: jaxine.c@gmail.com
+							<br/>
+							mobile: 0922 392 203
 						</p>
-						<p class="contact__section-p">Contact me with the contact info above, </br> or leave me message here.
-							<form class="contact__form">
-								<input type="hidden" name="contact_number">
-								<input class="contact__section-input contact__form-name input" type="text" name="user_name" placeholder="Name"/>
-								<input class="contact__section-input contact__form-email input" type="email" name="user_email" placeholder="Email" required/>
-								<textarea class="contact__section-input contact__form-msg input" name="message" rows="6" cols="50" placeholder="Message Here" required></textarea>
-								<button class="contact__form-btn" type="submit">Send</button>
-							</form>
+						<p class="contact__msg-p">Contact me with the contact info above, </br> or leave a message here.
 						</p>
+						<form class="contact__form">
+							<input type="hidden" name="contact_number">
+							<input class="contact__msg-input contact__form-name input" type="text" name="user_name" placeholder="Name"/>
+							<input class="contact__msg-input contact__form-email input" type="email" name="user_email" placeholder="Email" required/>
+							<textarea class="contact__msg-input contact__form-msg input" name="message" rows="6" cols="50" placeholder="Message Here" required></textarea>
+							<button class="contact__form-btn" type="submit">Send</button>
+						</form>
 					</section>
 				</div>
 				`;
@@ -364,11 +366,11 @@ class MainView extends View {
 									</li>
 								</ul>
 							</div>
-							<picture>
+							<picture class="home__portfolio-project-image">
 								<source srcset="${demoTpe}"
 									media="(max-width: 1200px)">
 								<img
-									class="home__portfolio-project-image home__portfolio-project-image-tpe"
+									class="image home__portfolio-project-image-tpe"
 									src="${picTpe}"
 									alt="tpe"
 								/>

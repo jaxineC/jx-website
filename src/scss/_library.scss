@@ -86,10 +86,34 @@ $screenPadding: 2rem;
 		padding: 0 2rem;
 		&:hover {
 			cursor: pointer;
+			font-weight: var(--heavy);
+			font-style: normal;
+			border: 1px solid var(--black);
 		}
 	}
 }
 
+@mixin headline-page {
+	&-title {
+		position: absolute;
+		top: 30vh;
+		left: 0px;
+		font-size: var(--XXXL);
+		font-weight: 900;
+		line-height: 6rem;
+		padding-left: 1rem;
+	}
+	&-highlight {
+		width: 55vw;
+		height: 20vh;
+		background-color: var(--theme);
+		position: absolute;
+		transform: translateY(3rem);
+		top: 30vh;
+		left: 0px;
+		z-index: -99;
+	}
+}
 @function calcPosition($containerWidth, $currentMargin, $extraElem) {
 	@return (100vw - $containerWidth / 2 + $currentMargin * 2 + $extraElem);
 }
