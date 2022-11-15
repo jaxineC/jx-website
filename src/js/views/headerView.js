@@ -12,10 +12,15 @@ class HeaderView extends View {
 	addHandler(func1, func2, func3) {
 		document
 			.querySelector(".header__menu")
-			.addEventListener("click", this._handleToggleMenu);
+			.addEventListener("click", this.handleToggleMenu);
 		this._addHandlerLogo(func1);
 		this._addHandlerNavPageTo(func2);
 		this._addHandlerExternalLinks(func3);
+	}
+
+	handleToggleMenu() {
+		const menu = document.querySelector(".header");
+		menu.classList.toggle("header__nav--mobileOpenMenu");
 	}
 	test() {
 		alert(`it works!`);
@@ -34,6 +39,7 @@ class HeaderView extends View {
 		const navLink = document.querySelector(".nav__links");
 		navLink.addEventListener("click", func);
 	}
+
 	_generateMarkup() {
 		const markup = `
 		<div class="header__logo" data-href="#">
@@ -71,7 +77,7 @@ class HeaderView extends View {
 				<use href="${icons}#icon-close" />
 			</svg>
 		</button>
-		<div class="header__line"></div>
+		<div class="header__background"></div>
     `;
 		return markup;
 	}

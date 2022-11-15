@@ -2,8 +2,9 @@
 //--VARIABLES, MIXINS, FUNCTIONS, EXTENDS--//
 
 //------------ VARIABLES -------------//
-$MqThreadDesktop: 75rem;
+$MqThreadDesktop: 75rem; //@media gurey 1em=1rem=16px;
 $MqThreadMobile: 37.5rem;
+$screenPadding: 2rem;
 :root {
 	--theme: #e6f252;
 	--white: #fff;
@@ -13,15 +14,15 @@ $MqThreadMobile: 37.5rem;
 	--darkGrey: #333;
 	--black: #000;
 	// font-size
-	--XXXL: 6.4em;
-	--XXL: 4.8em;
-	--XL: 3.2em;
-	--L: 2.4em;
-	--M: 1.6em;
-	--S: 1em;
-	--XS: 0.8em;
-	--XXS: 0.4em;
-	--XXXS: 0.2em;
+	--XXXL: 6.4rem;
+	--XXL: 4.8rem;
+	--XL: 3.2rem;
+	--L: 2.4rem;
+	--M: 1.6rem; // 16px
+	--S: 1rem;
+	--XS: 0.8rem;
+	--XXS: 0.4rem;
+	--XXXS: 0.2rem;
 	//font-weight
 	--heavy: 900;
 	--bold: 700;
@@ -72,18 +73,20 @@ $MqThreadMobile: 37.5rem;
 }
 
 @mixin btn-typ {
-	height: 3rem;
-	background-color: var(--white);
-	font-size: var(--M);
-	font-weight: 200;
-	font-style: italic;
-	border: 1px solid var(--grey);
-	border-radius: 0.6rem;
-	padding: 10px auto;
-	margin: 2rem 1rem;
-	padding: 0 2rem;
-	&:hover {
-		cursor: pointer;
+	button {
+		height: 5rem;
+		background-color: var(--white);
+		font-size: var(--M);
+		font-weight: var(--light);
+		font-style: italic;
+		border: 1px solid var(--grey);
+		border-radius: 0.6rem;
+		padding: 10px auto;
+		margin: 2rem 1rem;
+		padding: 0 2rem;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
 
@@ -92,8 +95,12 @@ $MqThreadMobile: 37.5rem;
 }
 
 .container {
-	max-width: 75em;
-	position: relative;
+	min-width: 120rem;
+	padding: 0 $screenPadding;
+	margin: 0 auto;
+	@include mq("desktop") {
+		min-width: 100vw;
+	}
 }
 
 .ft-heavy {

@@ -41,9 +41,4 @@ export default class View {
 		const markup = ``;
 		return markup;
 	}
-
-	_handleToggleMenu() {
-		const menu = document.querySelector(".header");
-		menu.classList.toggle("header__nav--mobileOpenMenu");
-	}
 }

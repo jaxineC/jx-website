@@ -21,14 +21,32 @@ const navPageTo = function (e) {
 		mainView.renderMarkup();
 		mainView.addHandler(downloadPDF, sendMessage);
 	}
+	if (
+		e.target.closest("header").classList.contains("header__nav--mobileOpenMenu")
+	) {
+		headerView.handleToggleMenu();
+	}
 };
 const openExternalLink = function (e) {
 	if (e.target.classList.contains("nav__link")) {
 		window.open(e.target.dataset.url);
 	}
 };
-const backToTop = function (e) {
-	window.scroll(0, 0);
+const smoothScroll = function (e) {
+	e.preventDefault();
+	const href = this.getAttribute("href");
+	if (href === "#") {
+		window.scroll({
+			top: 0,
+			behavior: "smooth",
+		});
+	}
+	if (href !== "#" && href.startsWith("#")) {
+		const secElem = document.querySelector(href);
+		secElem.scrollIntoView({
+			behavior: "smooth",
+		});
+	}
 };
 const downloadPDF = function (url, fileName) {
 	var link = document.createElement("a");
@@ -63,7 +81,6 @@ const sendMessage = function (event) {
 		}
 	);
 };
-
 const checkDevice = function () {
 	stateObj.device = window.innerWidth > MOBILE_THREAD ? "desktop" : "mobile";
 };
@@ -80,6 +97,6 @@ const init = function () {
 	footerView.renderMarkup();
 	headerView.addHandler(backToHome, navPageTo, openExternalLink);
 	mainView.addHandler(downloadPDF, sendMessage);
-	footerView.addHandler(backToTop);
+	footerView.addHandler(smoothScroll);
 };
 init();

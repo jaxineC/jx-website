@@ -1,7 +1,8 @@
 import View from "./View.js";
 import icons from "../../img/icons.svg";
 import demoBalancePro from "../../img/img-bp-demo.gif";
-import demoTpe from "../../img/img-tpe-demo.png";
+import picTpe from "../../img/img-tpe-pic.png";
+import demoTpe from "../../img/img-tpe-demo.gif";
 import fileCV from "../../img/Resume_EN.pdf";
 
 class MainView extends View {
@@ -53,7 +54,7 @@ class MainView extends View {
 							<h1 class="cv__headline-title ft-heavy">CV</h1>
 							<div class="cv__headline-highlight "></div>
 						</section>
-						<section class="cv__section cv__summary">
+						<section class="cv__section cv__summary" id="summary">
 							<h2 class="cv__section-title">Professional Summary</h2>
 							<p  class="cv__summary-p">
 								I am a front-end developer who majored in architecture and had worked as an architectural designer for years. 
@@ -256,24 +257,24 @@ class MainView extends View {
 				break;
 			default:
 				markup = `
-				<div class="home">
-					<section class="sections__summary">
-						<div class="sections__summary-text">
+				<div class="home container">
+					<section class="home__summary">
+						<div class="home__summary-text">
 							Ready to take on challenges on
 							<span class="ft-heavy ft-highlight">FRONT-END</span>
 								development, and 
 							<span class="ft-heavy">explore the world of code</span>.
 						</div>
-						<div class="sections__summary-image"></div>
-						<div class="sections__summary-highlight"></div>
-						<div class="sections__summary-background"></div>
+						<div class="home__summary-image"></div>
+						<div class="home__summary-highlight"></div>
+						<div class="home__summary-background"></div>
 					</section>
-					<section class="sections__skills">
-						<div class="sections__skills-highlight"></div>
-						<div class="sections__skills-title">
+					<section class="home__skills">
+						<div class="home__skills-highlight"></div>
+						<div class="home__skills-title">
 							Me & <span class="ft-heavy">Skills</span>
 						</div>
-						<div class="sections__skills-text">
+						<div class="home__skills-text">
 							<div>
 								I am an inquisitive person, and I am ready to take on challenges in
 								front-end development, find and solve problems. My passion is for
@@ -296,53 +297,59 @@ class MainView extends View {
 							<span>Git</span>
 							<span>Prettier</span>
 							<span>Adobe CC Illustrator</span>
-							<div><button class="sections__skills-download downloadCV">Download full CV</button>
+							<div><button class="home__skills-download downloadCV">Download full CV</button>
 							</div>
 						</div>
 					</section>
-					<section class="sections__portfolio">
-						<div class="sections__portfolio-highlight">portfolio</div>
-						<div class="sections__portfolio-project">
-							<div class="sections__portfolio-project-text">
+
+					<section class="home__portfolio">
+						<div class="home__portfolio-highlight"></div>
+						<div class="home__portfolio-title">Portfolio</div>
+						<div class="home__portfolio-project">
+							<div class="home__portfolio-project-text">
 								<div class="title">
 									<span class="ft-heavy">balancePro</span> online Gantt chart tool
 								</div>
 								<div class="sub">
-									balancePro is a front-end-oriented project. Focused on
-									visualization of user actions with mouse events and
-									timestamp-related methods in JavaScript.
+									balancePro is a front-end-oriented project. Focused on visualization
+									of user actions with mouse events and timestamp-related methods in
+									JavaScript.
 								</div>
-															<div>balacePro <a href="https://balancepro.me/">https://balancepro.me/</a></div>
-								<ul>
+								<ul class="features">
 									<li>
-										Used epoch timestamp as the original point and translated time
-										units to pixels with the help of JavaScript math methods.
+										Used epoch timestamp as the original point and translated time units
+										to pixels with the help of JavaScript math methods.
 									</li>
 									<li>Modularized with React hook and functional components.</li>
 									<li>
-										Utilized Firebase back-end services for hosting, database, and
-										user authentication.
+										Utilized Firebase back-end services for hosting, database, and user
+										authentication.
 									</li>
 									<li>Implemented styled-components for CSS in JS</li>
 									<li>Executed version control with Git branches.</li>
 								</ul>
 							</div>
-							<img class="sections__portfolio-project-image sections__portfolio-project-image-bp" src="${demoBalancePro}" alt="bp" />
+							<div class="home__portfolio-project-image">
+								<img
+									class="image home__portfolio-project-image-bp"
+									src="${demoBalancePro}"
+									alt="bp"
+								/>
+							</div>
 						</div>
-						<div class="sections__portfolio-project">
-							<div class="sections__portfolio-project-text">
+						<div class="home__portfolio-project">
+							<div class="home__portfolio-project-text">
 								<div class="title">
 									<span class="ft-heavy">Taipei Day Trip</span> e-commerce website
 								</div>
 								<div class="sub">
 									Taipei Day Trip website is a learning-from-doing full-stack
-									development Built with Python and deployed on AWS EC2 with
-									Ubuntu.
+									development Built with Python and deployed on AWS EC2 with Ubuntu.
 								</div>
-								<div>台北一日遊 <a href="http://52.20.252.232:3000/">http://52.20.252.232:3000/</a></div>
 								<ul>
 									<li>
-									RWD UI followed the design from Figma, involving infinite scroll and image slider.
+										RWD UI followed the design from Figma, involving infinite scroll and
+										image slider.
 									</li>
 									<li>
 										Client-side form validation with the pattern using regular
@@ -357,12 +364,26 @@ class MainView extends View {
 									</li>
 								</ul>
 							</div>
-							<img class="sections__portfolio-project-image sections__portfolio-project-image-tpe" src="${demoTpe}" alt="tpe" />
+							<picture>
+								<source srcset="${demoTpe}"
+									media="(max-width: 1200px)">
+								<img
+									class="home__portfolio-project-image home__portfolio-project-image-tpe"
+									src="${picTpe}"
+									alt="tpe"
+								/>
+							</picture>
+
 						</div>
 					</section>
-					<div class="sections__training-title">My Learning Tools</div>
-					<section class="sections__training">
-						<div class="sections__training-course">
+
+
+
+
+
+					<div class="home__training-title">My Learning Tools</div>
+					<section class="home__training">
+						<div class="home__training-course">
 							<div class="svg-text">
 								<svg>
 									<use href="${icons}#icon-wehelp" />
@@ -382,7 +403,7 @@ class MainView extends View {
 								<li>Knowledge to web security and performance.</li>
 							</ul>
 						</div>
-						<div class="sections__training-course">
+						<div class="home__training-course">
 							<svg>
 								<use href="${icons}#icon-udemy" />
 							</svg>

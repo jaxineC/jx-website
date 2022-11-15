@@ -13,8 +13,8 @@ class FooterView extends View {
 
 	// PRIVATE METHODS
 	_addHandlerBackToTop(func) {
-		const btn = document.querySelector(".footer__backToTop");
-		btn.addEventListener("click", func);
+		const link = document.querySelector(".footer__backToTop");
+		link.addEventListener("click", func);
 	}
 	_generateMarkup() {
 		const markup = `
@@ -22,7 +22,7 @@ class FooterView extends View {
 				UI/ UX is inspired by Wix.com templates + Udemy JavaScript online
 				courses by Jonas Schmedtmann.
 			</div>
-			<div class="footer__backToTop">Back To Top</div>
+			<a href="#" class="footer__backToTop">Back To Top</a>
 			<div class="footer__background"></div>
 		`;
 		return markup;

@@ -1,243 +1,228 @@
-.home,
-.sections {
-	margin: 0 var(--XXL);
-	@include mq("mobile") {
-		margin: 0 var(--M);
-	}
+.home {
+	max-width: 120rem;
+	font-size: var(--M);
+	padding: 0 $screenPadding;
 	&__summary {
 		height: 100vh;
-		margin-bottom: 25vh;
-		max-width: 40vw;
+		max-width: 40%;
 		display: flex;
 		flex-wrap: wrap;
+		margin-bottom: 25vh;
+		@include mq("desktop") {
+			max-width: 60%;
+		}
 		@include mq("mobile") {
-			max-width: 100%;
+			max-width: 90%;
+		}
+		&-text {
+			font-size: var(--XXL);
+			height: 100%;
+			vertical-align: middle;
+			padding-top: 40vh;
+			z-index: 999;
+		}
+		&-image {
+			width: 30vw;
+			height: 100vh;
+			position: absolute;
+			right: 0px;
+			top: 100px;
+			background-color: var(--theme);
+			margin: 50px 0px;
+		}
+		&-background {
+			z-index: -99;
+			align-self: center;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			height: calc(100vh + 100px);
+			width: 100vw;
+			background-color: var(--offWhite);
 		}
 	}
 	&__skills {
-		height: 100vh;
+		display: flex;
+		flex-direction: column;
 		margin-bottom: 25vh;
+		&-title {
+			font-size: var(--XL);
+			position: relative;
+			top: -3rem;
+		}
+		&-highlight {
+			position: absolute;
+			left: 0px;
+			width: 30vw;
+			height: 10vh;
+			background-color: var(--theme);
+			z-index: -99;
+			@include mq("mobile") {
+				width: 60vw;
+			}
+		}
+		&-text {
+			max-width: 60%;
+			font-size: var(--L);
+			height: 100%;
+			z-index: 999;
+			@include mq("desktop") {
+			}
+			@include mq("mobile") {
+				max-width: 100%;
+			}
+			div {
+				margin: 30px 0px;
+			}
+			span {
+				line-height: 4rem;
+				padding: 0px 10px;
+				margin: 2px 2px;
+			}
+			.black {
+				color: var(--white);
+				background-color: var(--black);
+			}
+			.lightGrey {
+				background-color: var(--lightGrey);
+			}
+			@include btn-typ;
+		}
 	}
 	&__portfolio {
+		position: relative;
 		margin-bottom: 25vh;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
+		@include mq("mobile") {
+			position: inherit;
+			position: unset;
+		}
+		&-title {
+			font-size: var(--XL);
+			padding: 2rem;
+			position: absolute;
+			left: 55%;
+			@include mq("desktop") {
+				left: calc(100%);
+				transform: translateX(-100%);
+			}
+			@include mq("mobile") {
+				position: relative;
+				top: -3rem;
+				left: unset;
+				transform: unset;
+				font-weight: var(--heavy);
+			}
+		}
+		&-highlight {
+			font-size: var(--XL);
+			width: 10rem;
+			height: 100%;
+			background-color: var(--theme);
+			padding: 2rem;
+			position: absolute;
+			left: 55%;
+			z-index: -99;
+			@include mq("desktop") {
+				left: calc(100% - 10rem);
+				text-align: end;
+			}
+			@include mq("mobile") {
+				position: absolute;
+				left: 0px;
+				width: 60vw;
+				height: 10vh;
+				background-color: var(--theme);
+				z-index: -99;
+			}
+		}
+		&-project {
+			display: flex;
+			flex-wrap: wrap;
+			padding-bottom: var(--XXXL);
+			@include mq("desktop") {
+				width: calc(100% - 10rem);
+				flex-direction: column;
+				background-color: var(--offWhite);
+			}
+			@include mq("mobile") {
+				width: 100%;
+			}
+			&-text {
+				width: 55%;
+				background-color: var(--offWhite);
+				padding: var(--XXL);
+				@include mq("desktop") {
+					width: 100%;
+				}
+				.title {
+					font-size: var(--L);
+					border-left: 2px solid var(--black);
+					padding-left: 1rem;
+					line-height: 3rem;
+					margin-bottom: 1rem;
+				}
+				.sub {
+					font-size: var(--L);
+					margin-bottom: 1rem;
+				}
+				@include li-typ;
+			}
+			&-image {
+				padding: var(--L);
+				padding-top: var(--XXXL);
+				width: 45%;
+				@include mq("desktop") {
+					width: 100%;
+					padding-top: var(--L);
+				}
+				.image {
+					width: 100%;
+				}
+			}
+		}
 	}
 	&__training-title {
 		font-size: var(--XL);
 		text-align: center;
 	}
 	&__training {
+		max-width: 120rem;
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
+		flex-wrap: wrap;
 		color: var(--white);
 		background-color: var(--black);
-		padding: 2rem;
 		margin-bottom: 5rem;
-	}
-}
-
-.sections__summary {
-	&-text {
-		font-size: var(--XXL);
-		height: 100%;
-		vertical-align: middle;
-		padding-top: 40vh;
-		z-index: 999;
-	}
-	&-image {
-		width: 30vw;
-		height: 100vh;
-		position: absolute;
-		right: 0px;
-		top: 100px;
-		background-color: var(--theme);
-		margin: 50px 0px;
-	}
-
-	&-background {
-		z-index: -99;
-		align-self: center;
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		height: calc(100vh + 100px);
-		width: 100vw;
-		background-color: var(--offWhite);
-	}
-}
-.sections__skills {
-	&-title {
-		font-size: var(--XL);
-		position: relative;
-		top: -30px;
-	}
-	&-highlight {
-		z-index: -99;
-		position: absolute;
-		left: 0px;
-		width: 30vw;
-		height: 10vh;
-		background-color: var(--theme);
-	}
-	&-text {
-		font-size: var(--L);
-		max-width: 40vw;
-		height: 100%;
-		z-index: 999;
-		@include mq("mobile") {
+		padding: 2rem;
+		@include mq("desktop") {
 			max-width: 100%;
 		}
-		div {
-			margin: 30px 0px;
-		}
-		span {
-			line-height: 2.5rem;
-			padding: 0px 10px;
-			margin: 2px 2px;
-		}
-		.black {
-			color: var(--white);
-			background-color: var(--black);
-		}
-		.lightGrey {
-			background-color: var(--lightGrey);
-		}
-		button {
-			height: 3rem;
-			background-color: var(--white);
-			font-size: var(--M);
-			font-weight: 200;
-			font-style: italic;
-			border: 1px solid var(--grey);
-			border-radius: 0.5rem;
-			padding: 10px auto;
-			margin: 2rem 1rem;
-			padding: 0 2rem;
-		}
-	}
-}
-.sections__portfolio {
-	&-highlight {
-		font-size: var(--XL);
-		z-index: 99;
-		position: absolute;
-		left: calc((100vw - $MqThreadDesktop) / 2 + var(--XXL) * 2 + 50vw);
-		width: 8vw;
-		height: 120vh;
-		background-color: var(--theme);
-		@include mq("desktop") {
-			left: calc(var(--XXL) * 2 + 50vw);
-		}
-		@include mq("mobile") {
-			z-index: -99;
-			position: absolute;
-			top: calc(200vh + 200px);
-			padding-left: var(--XL);
-			left: 0px;
-			width: 30vw;
-			height: 10vh;
-			background-color: var(--theme);
-		}
-	}
-	&-project {
-		padding: var(--XXL);
-		background-color: var(--offWhite);
-		width: 50vw;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		@include mq("mobile") {
-			width: 100%;
-		}
-		@include li-typ;
-		&-text {
-			font-size: var(--M);
-
-			.title {
-				font-size: var(--L);
-				border-left: 2px solid var(--black);
-				padding-left: 0.5rem;
-				line-height: 1.5rem;
-				margin-bottom: 1rem;
-			}
-			.sub {
-				font-size: var(--L);
-				margin-bottom: 1rem;
-			}
-			ul {
-				margin-bottom: 4rem;
-			}
-		}
-		&-image-bp {
-			width: 45vw;
-			object-fit: cover;
-			position: absolute;
-			right: 0px;
-			transform: translateY(-16vw);
-			z-index: -99;
-			@include mq("desktop") {
-				left: calc(var(--XXL) * 1 + 55vw);
-			}
-			@include mq("mobile") {
-				width: 100%;
-				position: static;
-				transform: translateY(0px);
-				z-index: inherit;
-			}
-		}
-		&-image-tpe {
-			width: 20vw;
-			max-height: 120vh;
-			object-position: top;
-			object-fit: cover;
-			position: absolute;
-			left: calc((100vw - 1200px) / 2 + var(--XXL) * 2 + 50vw);
-			align-self: center;
-			z-index: -99;
-			@include mq("mobile") {
-				width: 100%;
-				height: 30vh;
-				position: static;
-				object-fit: cover;
-				overflow: scroll;
-				object-position: top;
-				z-index: inherit;
-			}
-		}
-	}
-}
-
-.sections__training {
-	justify-content: space-around;
-	flex-wrap: wrap;
-	.title {
-		width: 100%;
-		text-align: center;
-	}
-	&-course {
-		width: 40%;
-		margin-bottom: var(--XL);
-		@include mq("mobile") {
-			width: 80%;
+		&-course {
+			width: 40%;
 			margin-bottom: var(--XL);
-		}
-		.svg-text {
-			text-align: center;
-			font: var(--XXL) Arial, serif;
-			font-weight: 900;
-			color: rgb(34, 51, 68);
-			svg {
-				width: 80px;
-				padding: 0px;
-				vertical-align: middle;
+			@include mq("mobile") {
+				width: 80%;
+				margin-bottom: var(--XL);
 			}
-		}
-		svg {
-			height: 80px;
-			width: 100%;
-			padding: 10px 0;
+			.title {
+				text-align: center;
+			}
+			.svg-text {
+				text-align: center;
+				font: var(--XXL) Arial, serif;
+				font-weight: 900;
+				color: rgb(34, 51, 68);
+				svg {
+					width: 80px;
+					padding: 0px;
+					vertical-align: middle;
+				}
+			}
+			svg {
+				height: 80px;
+				width: 100%;
+				padding: 1rem 0;
+			}
 		}
 	}
 }
