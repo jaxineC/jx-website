@@ -4,6 +4,7 @@ import footerView from "./views/footerView.js";
 import mainView from "./views/mainView.js";
 import headerView from "./views/headerView.js";
 import { TEMP_SEC, MOBILE_THREAD } from "./config.js";
+import { app, analytics } from "./firebase";
 
 const stateObj = {
 	user: "",

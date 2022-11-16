@@ -238,7 +238,7 @@ class MainView extends View {
 					<section class="contact__msg">
 						<h2 class="contact__msg-title">Say Hi</h2>
 						<p class="contact__msg-p contactInfo">
-							Jaxine Chang
+							Jaxine Chia-Hsing Chang
 							<br/>
 							email: jaxine.c@gmail.com
 							<br/>

@@ -27,6 +27,7 @@ module.exports = {
 			title: "Output Management",
 			template: "./index.html",
 			filename: "index.html",
+			favicon: "./src/img/favicon.ico",
 		}),
 	],
 	module: {

@@ -5,6 +5,7 @@
 	flex-wrap: nowrap;
 	justify-content: center;
 	padding: 0 $screenPadding;
+	@include sec-cv;
 	&__headline {
 		height: 50vh;
 		@include headline-page;
@@ -22,6 +23,7 @@
 		@include btn-typ;
 	}
 	&__skills {
+		font-size: var(--M);
 		margin-bottom: 150px;
 	}
 	&__work {
@@ -32,48 +34,5 @@
 	}
 	&__honers {
 		margin-bottom: 150px;
-	}
-}
-
-.cv__section {
-	&-title {
-		font-size: var(--XL);
-		line-height: 6rem;
-		margin-bottom: 8rem;
-	}
-	&-highlight {
-		width: 40vw;
-		height: 10vh;
-		background-color: var(--theme);
-		position: absolute;
-		left: 0px;
-		transform: translateY(3rem);
-		z-index: -99;
-	}
-	&-p {
-		font-size: var(--M);
-		margin-bottom: var(--L);
-		padding-left: 1rem;
-	}
-	&-list {
-		list-style: outside;
-		list-style-type: none;
-		margin-bottom: 3rem;
-	}
-	&-year {
-		font-size: var(--M);
-	}
-	&-em {
-		font-size: var(--L);
-		margin-bottom: 0.5rem;
-	}
-	&-projects {
-		font-size: var(--M);
-		@include li-typ;
-	}
-
-	span {
-		background-color: var(--offWhite);
-		padding: 0.1rem 0.5rem;
 	}
 }

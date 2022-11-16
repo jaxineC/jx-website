@@ -28,7 +28,7 @@ $screenPadding: 2rem;
 	--bold: 700;
 	--medium: 500;
 	--regular: 400;
-	--light: 300;
+	--light: 350;
 	//line-height
 	--defult: 1;
 	--small: 1.05;
@@ -74,6 +74,7 @@ $screenPadding: 2rem;
 
 @mixin btn-typ {
 	button {
+		color: var(--black);
 		height: 5rem;
 		background-color: var(--white);
 		font-size: var(--M);
@@ -114,6 +115,52 @@ $screenPadding: 2rem;
 		z-index: -99;
 	}
 }
+
+@mixin sec-cv {
+	.cv__section {
+		&-title {
+			font-size: var(--XL);
+			line-height: 6rem;
+			margin-bottom: 8rem;
+		}
+		&-highlight {
+			width: 40vw;
+			height: 10vh;
+			background-color: var(--theme);
+			position: absolute;
+			left: 0px;
+			transform: translateY(3rem);
+			z-index: -99;
+		}
+		&-p {
+			font-size: var(--M);
+			margin-bottom: var(--L);
+			padding-left: 1rem;
+		}
+		&-list {
+			list-style: outside;
+			list-style-type: none;
+			margin-bottom: 3rem;
+		}
+		&-year {
+			font-size: var(--M);
+		}
+		&-em {
+			font-size: var(--L);
+			margin-bottom: 0.5rem;
+		}
+		&-projects {
+			font-size: var(--M);
+			@include li-typ;
+		}
+
+		span {
+			background-color: var(--offWhite);
+			padding: 0.1rem 0.5rem;
+		}
+	}
+}
+
 @function calcPosition($containerWidth, $currentMargin, $extraElem) {
 	@return (100vw - $containerWidth / 2 + $currentMargin * 2 + $extraElem);
 }
