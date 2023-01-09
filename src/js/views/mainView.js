@@ -3,7 +3,7 @@ import icons from "../../img/icons.svg";
 import demoBalancePro from "../../img/img-bp-demo.gif";
 import picTpe from "../../img/img-tpe-pic.png";
 import demoTpe from "../../img/img-tpe-demo.gif";
-import fileCV from "../../img/Resume_EN.pdf";
+import fileCV from "../../img/cv_Jaxine_Chang.pdf";
 
 class MainView extends View {
 	constructor(parentClass) {
@@ -134,8 +134,7 @@ class MainView extends View {
 									</li>
 									<li class="cv__section-list">
 										<div class="cv__section-year">2018 ~ , Taiwan</div>
-										<div class="cv__section-em">Designer/ Freelancer | Elements Innovation Co.,Ltd
-											, Fieldarchi, etc.</div>
+										<div class="cv__section-em">Designer/ Freelancer | multiple clients</div>
 										<ul class="cv__section-projects">
 											<li>Eutopia Resort, Hsinch</li>
 											<li>Hakka-themed Guandong Market Retrofit, Hsinchu</li>

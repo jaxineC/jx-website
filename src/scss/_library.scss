@@ -4,7 +4,7 @@
 //------------ VARIABLES -------------//
 $MqThreadDesktop: 75rem; //@media gurey 1em=1rem=16px;
 $MqThreadMobile: 37.5rem;
-$screenPadding: 2rem;
+$screenPadding: 3rem;
 :root {
 	--theme: #e6f252;
 	--white: #fff;
@@ -157,6 +157,7 @@ $screenPadding: 2rem;
 		span {
 			background-color: var(--offWhite);
 			padding: 0.1rem 0.5rem;
+			line-height: 3.5rem;
 		}
 	}
 }
